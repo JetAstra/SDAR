@@ -77,7 +77,7 @@ We compare the performance of **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** und
 Additionally, we evaluate how varying the threshold in static inference affects speed relative to dynamic inference.
 
 <p align="center">
-  <img src="assets/Performace_and_speed.svg" width="95%">
+  <img src="assets/Performace_and_speed.svg" width="100%">
 </p>
 
 > **Key observations:**
