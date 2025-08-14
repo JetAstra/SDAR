@@ -2,6 +2,15 @@
   <img src="assets/SDAR_doc_head.png" style="max-width:75%; height:auto;">
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-blue" />
+  <a href="https://jetastra.github.io/SDAR/">
+    <img src="https://img.shields.io/badge/Website-SDAR-blue" />
+  </a>
+  <a href="https://huggingface.co/collections/JetLM/sdar-689b1b6d392a4eeb2664f8ff">
+    <img src="https://img.shields.io/badge/HuggingFace-Models-yellow" />
+  </a>
+</p>
 
 **SDAR**(**S**ynergy of **D**iffusion and **A**uto**R**egression)-model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA opensource AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date.
 
