@@ -1,13 +1,24 @@
-<div align="center" style="display: flex; align-items: center; justify-content: center;">
-  <img src="./assets/SDAR_logo.png" width="80" style="margin-right: 15px;">
-  <h1><b>SDAR</b> (<b>S</b>ynergy of <b>D</b>iffusion and <b>A</b>uto<b>R</b>egression)</h1>
-</div>
+<p align="center">
+  <img src="./assets/SDAR_logo.png" width="80" style="vertical-align: middle; margin-right: 15px;">
+  <span style="font-size: 28px; font-weight: bold; vertical-align: middle;">
+    SDAR (Synergy of Diffusion and AutoRegression)
+  </span>
+</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-blue" />
+  <a href="https://jetastra.github.io/SDAR/">
+    <img src="https://img.shields.io/badge/Website-SDAR-blue" />
+  </a>
+  <a href="https://huggingface.co/collections/JetLM/sdar-689b1b6d392a4eeb2664f8ff">
+    <img src="https://img.shields.io/badge/HuggingFace-Models-yellow" />
+  </a>
+</p>
 
 **SDAR**(**S**ynergy of **D**iffusion and **A**uto**R**egression)-model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA opensource AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date.
 
-## 🗞️ Updates
+## 🗞️ News
+ [2025-07-20] — We’ve open-sourced the weights for our [1.7B](https://huggingface.co/JetLM/SDAR-1.7B-Chat), [4B](https://huggingface.co/JetLM/SDAR-4B-Chat), [8B](https://huggingface.co/JetLM/SDAR-8B-Chat) dense models, along with our [30B](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) MoE model — now available on Hugging Face 🤗.
 
- **2025-07-20** — We’ve open-sourced the weights for our **1.7B**, **4B**, and **8B** dense models, along with our **30B** MoE model. [Explore on Hugging Face 🤗](https://huggingface.co/collections/JetLM/sdar-689b1b6d392a4eeb2664f8ff)
 
 ## ⚙️ Usage
 
@@ -40,25 +51,25 @@ We use Qwen3-1.7B-Base, Qwen3-4B-Base, Qwen3-8B-Base, and Qwen3-30B-A3B-Base as 
 
 ### Performance
 
-For **SDAR** models, inference hyperparameters are set to:
-`block_length = 4`, `denoising_steps = 4`, greedy decoding.
+For **SDAR** models, inference hyperparameters are set to: `block_length = 4`, `denoising_steps = 4`, greedy decoding.
 
-For Qwen3-1.7B-AR-SFT and Qwen3-30B-AR-SFT, we use greedy decoding.
-
-| Model             | MMLU | Math500 | GSM8K | HumanEval | Sanitized_MBPP | IFEval | MathBench |
-|:-----------------:|:----:|:-------:|:-----:|:---------:|:--------------:|:------:|:---------:|
-| SDAR-1.7B-Chat    | 62.9 |  63.2   | 80.06 | 61.59     | 61.09          | 43.44  | 63.55     |
-| SDAR-4B-Chat      | 74.85|  72.8   | 89.92 | 71.95     | 65.37          | 56.56  | 74.71     |
-| SDAR-8B-Chat      | 78.61|  78.6	 | 91.28 | 78.66     | 71.98          | 61.37  | 76.94     |
-| SDAR-30B-A3B-Chat | 82.80|  77.8   | 92.27 | 83.54     | 74.32          | 58.60  | 78.33     |
-| Qwen3-1.7B-AR-SFT | 63.82|  62.00  | 81.12 | 65.85     | 61.87          | 43.25  | 60.53     |
-| Qwen3-30B-AR-SFT  | 82.23|  76.8   | 92.65 | 84.76     | 75.10          | 57.67  | 78.41     |
-| Qwen3-1.7B-Base   | 62.6 |  43.5   | 75.44 |   -       | 55.40          |   -    |  -        |
-| Qwen3-30B-Base    | 81.38|  59.04  | 91.81 |   -       | 74.40          |   -    |  -        |
+For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, and the base models **Qwen3-1.7B-Base** and **Qwen3-30B-Base** are derived from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
 
 
-> SDAR-1.7B-Chat matches Qwen3-1.7B-AR-SFT across all benchmarks.
-> SDAR-30B-A3B-Chat matches Qwen3-30B-AR-SFT across all benchmarks.
+| Model             | MMLU  | GSM8K | Math500 | MathBench | HumanEval | MBPP  | IFEval |
+|:------------------|:-----:|:-----:|:-------:|:---------:|:---------:|:-----:|:------:|
+| SDAR-1.7B-Chat    | 62.90 | 80.06 | 63.20   | 63.55     | 61.59     | 61.09 | 43.44  |
+| SDAR-4B-Chat      | 74.85 | 89.92 | 72.80   | 74.71     | 71.95     | 65.37 | 56.56  |
+| SDAR-8B-Chat      | 78.61 | 91.28 | 78.60   | 76.94     | 78.66     | 71.98 | 61.37  |
+| SDAR-30B-A3B-Chat | 82.80 | 91.36 | 77.80   | 79.25     | 87.20     | 71.60 | 60.63  |
+| Qwen3-1.7B-AR-SFT | 63.82 | 81.12 | 62.00   | 60.53     | 65.85     | 61.87 | 43.25  |
+| Qwen3-30B-AR-SFT  | 82.23 | 92.65 | 76.80   | 78.41     | 84.76     | 75.10 | 57.67  |
+| Qwen3-1.7B-Base   | 62.60 | 75.44 | 43.50   | –         | –         | 55.40 | –      |
+| Qwen3-30B-Base    | 81.38 | 91.81 | 59.04   | –         | –         | 74.40 | –      |
+
+
+> SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
+> SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
 
 ### Efficiency
 
@@ -66,19 +77,20 @@ SDAR provides over 2× faster inference speed losslessly compared to the same-si
 
 ## 🔥 Highlight
 
-- **Innovation** — Pioneers a new language model training and inference paradigm that **integrates the strengths of autoregressive (AR) and diffusion models**.  
-  - Mitigates the inefficiency of AR models during inference while retaining their efficient training characteristics, and leverages diffusion to alleviate **causal inductive bias** in certain scenarios.
+1. **Innovation** — Alleviates the inefficiency of autoregressive (AR) models during inference while preserving their training efficiency. Additionally, it leverages diffusion mechanisms to reduce causal inductive bias in relevant scenarios.
 
-- **Efficient Computation** — Combines the efficient training paradigm of AR models with the efficient inference of diffusion models, achieving **2× faster inference speed**.
+2. **Efficient Computation** — Integrates the training efficiency of AR models with the fast inference capabilities of diffusion models, achieving up to **2× faster inference**.
 
-- **Strong Performance** — On multiple benchmarks:  
-  - Non-reasoning model **matches or surpasses** the strongest existing non-reasoning AR models of the same scale.  
-  - Reasoning model **performs on par** with same-tier **Qwen3** models.  
-  - Unlike most current diffusion-based LMs (often limited to small-scale experiments or niche tasks, e.g., code generation), our models are fully production-ready.
+3. **Strong Performance** — Demonstrates state-of-the-art results across diverse benchmarks:
+   - The **non-reasoning variant** matches or outperforms the strongest existing AR models of the same scale.
+   - The **reasoning variant** performs competitively with top-tier **Qwen3** models.
+   - Unlike most current diffusion-based LMs—often limited to small-scale experiments or niche tasks (e.g., code generation)—**our models are production-ready and widely applicable**.
+
 
 ## 🚩 Roadmap
 - [x] release non-reasoning models
 - [x] release naive inference code
+- [ ] release inference engine
 - [ ] release training code
 - [ ] release reasoning models
 
