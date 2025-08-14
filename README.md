@@ -56,12 +56,11 @@ For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, an
 | Qwen3-30B-AR-SFT  | 82.23 | 92.65 | 76.80   | 78.41     | 84.76     | 75.10 | 57.67  |
 | Qwen3-1.7B-Base   | 62.60 | 75.44 | 43.50   | –         | –         | 55.40 | –      |
 | Qwen3-30B-Base    | 81.38 | 91.81 | 59.04   | –         | –         | 74.40 | –      |
-
 </p>
 
 > **Key observations:**
-> SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
-> SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
+> - SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
+> - SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
 
 ### Efficiency
 
@@ -73,9 +72,9 @@ Additionally, we evaluate how varying the threshold in static inference affects 
 </p>
 
 > **Key observations:**
-> • SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
-> • The speedup effect becomes more pronounced as the model size increases.
-> • At present, SDAR does not employ a dedicated inference engine or custom operators; therefore, direct hardware-level speed comparisons with AR models are not provided. These optimizations will be released in the future, enabling more comprehensive hardware-based benchmarks.
+> - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
+> - The speedup effect becomes more pronounced as the model size increases.
+
 
 
 
