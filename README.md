@@ -1,13 +1,12 @@
-
-<table align="center">
-  <tr>
-    <td><img src="./assets/SDAR_logo.png" width="80"></td>
-    <td style="padding-left: 15px;">
-      <h1 style="margin: 0;"><strong>SDAR</strong></h1>
-      <p style="margin: 0;"><em>Synergy of Diffusion and AutoRegression</em></p>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <span style="display: inline-flex; align-items: center;">
+    <img src="./assets/SDAR_logo.png" width="80" style="margin-right: 15px;">
+    <span style="text-align: left;">
+      <strong style="font-size: 32px;">SDAR</strong><br>
+      <em>Synergy of Diffusion and AutoRegression</em>
+    </span>
+  </span>
+</p>
 
 
 
