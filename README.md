@@ -1,9 +1,16 @@
-<p align="center">
-  <img src="./assets/SDAR_logo.png" width="80" style="vertical-align: middle; margin-right: 15px;">
-  <span style="font-size: 28px; font-weight: bold; vertical-align: middle;">
-    SDAR (Synergy of Diffusion and AutoRegression)
-  </span>
-</p>
+
+<table align="center">
+  <tr>
+    <td><img src="./assets/SDAR_logo.png" width="80"></td>
+    <td style="padding-left: 15px;">
+      <h1 style="margin: 0;"><strong>SDAR</strong></h1>
+      <p style="margin: 0;"><em>Synergy of Diffusion and AutoRegression</em></p>
+    </td>
+  </tr>
+</table>
+
+
+
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-blue" />
   <a href="https://jetastra.github.io/SDAR/">
