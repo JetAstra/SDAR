@@ -1,5 +1,5 @@
 <div align="center" style="display: flex; align-items: center; justify-content: center;">
-  <img src="./asset/logo.jpg" width="80" style="margin-right: 15px;">
+  <img src="./assets/SDAR_logo.png" width="80" style="margin-right: 15px;">
   <h1><b>SDAR</b> (<b>S</b>ynergy of <b>D</b>iffusion and <b>A</b>uto<b>R</b>egression)</h1>
 </div>
 
@@ -23,8 +23,10 @@ The training code will be released soon.
 
 ### Inference
 
-```
-python generate.py 
+```sh
+python generate.py \
+  --model_dir=JetLM/SDAR-1.7B-Chat \
+  --trust_remote_code
 ```
 
 ## 📊 Benchmarks
