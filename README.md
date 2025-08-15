@@ -95,15 +95,15 @@ outputs = llm.generate_streaming([prompt], sampling_params)
 
 
 ## 📊 Benchmarks
-
-### Settings
+### Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
+#### Settings
 
 We use Qwen3-1.7B-Base, Qwen3-4B-Base, Qwen3-8B-Base, and Qwen3-30B-A3B-Base as base models. Each model undergoes continued pretraining on 0.14% (50B) tokens of relatively low quality data (opensource data), followed by fine-tuning on the general SFT dataset.
 
 - SDAR-1.7B-Chat, SDAR-4B-Chat, SDAR-8B-Chat, and SDAR-30B-A3B-Chat are trained using the **SDAR training scheme**.
 - Qwen3-1.7B-AR-SFT and Qwen3-30B-AR-SFT are trained using the **autoregressive (AR) training scheme**.
 
-### Performance
+#### Performance
 
 For **SDAR** models, inference hyperparameters are set to: `block_length = 4`, `denoising_steps = 4`, greedy decoding.
 
@@ -127,7 +127,7 @@ For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, an
 > - SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
 > - SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
 
-### Efficiency
+#### Efficiency
 
 We compare the performance of **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under both *dynamic* and *static* inference settings.
 Additionally, we evaluate how varying the threshold in dynamic inference affects speed relative to static inference.
@@ -140,8 +140,35 @@ Additionally, we evaluate how varying the threshold in dynamic inference affects
 > - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
 > - The speedup effect becomes more pronounced as the model size increases.
 
+### Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
+#### Settings
+
+Starting from **Qwen3-30B-A3B-Base**, we trained on 500B tokens (including scientific data) using the NTP strategy, followed by 500B tokens of annealing, resulting in the **AR-30B-A3B-Sci-Base** model. Based on AR-30B-A3B-Sci-Base, we then performed continued training with the SDAR strategy using 50B tokens randomly sampled from the 500B annealing dataset, producing the **SDAR-30B-A3B-Sci-Base** model. Finally, both AR-30B-A3B-Sci-Base and SDAR-30B-A3B-Sci-Base were further fine-tuned on reasoning datasets to obtain the **AR-30B-A3B-Sci** and **SDAR-30B-A3B-Sci** models, respectively.
 
 
+#### Performance
+
+For the **AR-30B-A3B-Sci** model, we use decoding parameters `temperature=0.6`, `top_p=0.95`, and `top_k=20`.
+For the **SDAR-30B-A3B-Sci** model, we set `block_length=4` and `denoising_steps=4`, and perform decoding with both greedy and sampling strategies, where the sampling parameters are `temperature=1.0`, `top_p=1.0`, and `top_k=0`. 
+
+The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 2024, AIME 2025, and LiveMathBench. Scores for the remaining models are sourced from the [InternLM/Intern-S1](https://github.com/InternLM/Intern-S1) repository.
+
+| Task                 | AR-30B-A3B-Sci | SDAR-30B-A3B-Sci (greedy) | SDAR-30B-A3B-Sci (sample) | Intern-S1(235B-A22B) | InternVL3-78B | Qwen2.5-VL-72B | DS-R1-0528 | Qwen3-235B-A22B | Kimi-K2-Instruct | Gemini-2.5 Pro |  o3  | Grok-4 |
+|----------------------|:--------------:|:-------------------------:|:-------------------------:|:--------------------:|:-------------:|:--------------:|:----------:|:----------------:|:----------------:|:--------------:|:----:|:------:|
+| MMLU_pro             | 78.3           | 80.2                      | 80.6                      | 83.5                 | 73.0          | 72.1           | 83.4       | 82.2              | 82.7              | 86.0            | 85.0 | 85.9   |
+| GPQA_diamond         | 61.2           | 73.7                      | 71.8                      | 77.3                 | 49.9          | 49.0           | 80.6       | 71.1              | 77.8              | 83.8            | 83.3 | 87.5   |
+| AIME2024             | 74.9           | 73.3                      | 76.2                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
+| AIME2025             | 60.7           | 63.3                      | 62.2                      | 86.0                 | 10.7          | 10.9           | 87.5       | 81.5              | 51.4              | 83.0            | 88.9 | 91.7   |
+| Livemathbench_hard   | 55.4           | 60.7                      | 57.9                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
+| LCB Code Gen V5      | 51.5           | 40.7                      | 49.1                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
+| LCB Code Gen V6      | 46.3           | 42.3                      | 51.4                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
+| ChemBench            | 60.5           | 75.1                      | 75.1                      | 83.4                 | 61.3          | 61.6           | 75.6       | 75.8              | 75.3              | 82.8            | 81.6 | 83.3   |
+| PHYSICS              | 39.0           | 52.9                      | 55.6                      | 44.0                 | 23.1          | 15.7           | –          | –                 | –                 | 40.0            | 47.9 | 42.8   |
+| ProteinLMBench       | 59.5           | 60.7                      | 60.0                      | 63.1                 | 61.6          | 61.0           | 61.4       | 59.8              | 66.7              | 62.9            | 67.7 | 66.2   |
+
+> **Key observations:**
+> - **Comparison under the same data and model settings**: Across nearly all tasks, **SDAR-30B-A3B-Sci** outperforms **AR-30B-A3B-Sci**, with especially notable gains on science-focused benchmarks such as **GPQA**, **ChemBench**, and **PHYSICS**.
+> - **Comparison with other models**: On **GPQA**, **SDAR-30B-A3B-Sci** surpasses models like **Intern-S1 (235B-A22B)** and **Qwen3-235B-A22B**, approaching the performance of leading models such as **Gemini-2.5 Pro**, **o3**, and **Grok-4**. On **ChemBench**, it not only matches or exceeds most open-source models but also approaches the **SOTA** performance across all models, demonstrating strong scientific reasoning capabilities. On **PHYSICS**, it significantly outperforms most baselines, even surpassing much larger models like **Intern-S1 (235B-A22B)**.
 
 ## 🔥 Highlight
 
@@ -156,9 +183,10 @@ Additionally, we evaluate how varying the threshold in dynamic inference affects
 
 
 ## 🚩 Roadmap
+
 - [x] release non-reasoning models
 - [x] release naive inference code
-- [ ] release inference engine
+- [x] release inference engine
 - [ ] release training code
 - [ ] release reasoning models
 
