@@ -1,0 +1,3 @@
+[submodule "thirdparty/JetEngine"]
+	path = thirdparty/JetEngine
+	url = https://github.com/Labman42/JetEngine.git
