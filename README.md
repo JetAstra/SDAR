@@ -49,9 +49,50 @@ git clone https://github.com/JetAstra/SDAR.git
 cd SDAR
 git submodule update --init --recursive
 cd third_party/JetEngine
-pip install -e .
-python example.py
+pip install .
 ```
+
+The following example shows how to quickly load a model with JetEngine and run a prompt end-to-end.
+
+```python
+import os
+from jetengine import LLM, SamplingParams
+from transformers import AutoTokenizer
+
+model_path = os.path.expanduser("/path/to/your/model")
+tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+# Initialize the LLM
+llm = LLM(
+    model_path,
+    enforce_eager=True,
+    tensor_parallel_size=1,
+    mask_token_id=151669,   # Optional: only needed for masked/diffusion models
+    block_length=4
+)
+
+# Set sampling/generation parameters
+sampling_params = SamplingParams(
+    temperature=1.0,
+    topk=0,
+    topp=1.0,
+    max_tokens=256,
+    remasking_strategy="low_confidence_dynamic",
+    block_length=4,
+    denoising_steps=4,
+    dynamic_threshold=0.9
+)
+
+# Prepare a simple chat-style prompt
+prompt = tokenizer.apply_chat_template(
+    [{"role": "user", "content": "Explain what reinforcement learning is in simple terms."}],
+    tokenize=False,
+    add_generation_prompt=True
+)
+
+# Generate text
+outputs = llm.generate_streaming([prompt], sampling_params)
+```
+
 
 ## 📊 Benchmarks
 
