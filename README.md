@@ -32,10 +32,25 @@ The training code will be released soon.
 
 ### Inference
 
-```sh
+#### 1. Using the built-in inference script
+
+```bash
 python generate.py \
   --model_dir=JetLM/SDAR-1.7B-Chat \
   --trust_remote_code
+```
+
+#### 2. Using the third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine)
+
+JetEngine enables more efficient inference compared to the built-in implementation.
+
+```bash
+git clone https://github.com/JetAstra/SDAR.git
+cd SDAR
+git submodule update --init --recursive
+cd third_party/JetEngine
+pip install -e .
+python example.py
 ```
 
 ## 📊 Benchmarks
@@ -74,7 +89,7 @@ For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, an
 ### Efficiency
 
 We compare the performance of **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under both *dynamic* and *static* inference settings.
-Additionally, we evaluate how varying the threshold in static inference affects speed relative to dynamic inference.
+Additionally, we evaluate how varying the threshold in dynamic inference affects speed relative to static inference.
 
 <p align="center">
   <img src="assets/Performace_and_speed.svg" width="100%">
