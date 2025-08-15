@@ -10,7 +10,9 @@
   <a href="https://huggingface.co/collections/JetLM/sdar-689b1b6d392a4eeb2664f8ff">
     <img src="https://img.shields.io/badge/HuggingFace-Models-yellow" />
   </a>
+  <img src="https://img.shields.io/badge/Technical%20Report-Coming%20Soon-orange" />
 </p>
+
 
 **SDAR**(**S**ynergy of **D**iffusion and **A**uto**R**egression)-model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA opensource AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date.
 
@@ -138,7 +140,7 @@ Additionally, we evaluate how varying the threshold in dynamic inference affects
 
 > **Key observations:**
 > - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
-> - The speedup effect becomes more pronounced as the model size increases.
+> - The speedup effect tends to become more pronounced with increasing model size.
 
 ### Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
 #### Settings
@@ -153,15 +155,15 @@ For the **SDAR-30B-A3B-Sci** model, we set `block_length=4` and `denoising_steps
 
 The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 2024, AIME 2025, and LiveMathBench. Scores for the remaining models are sourced from the [InternLM/Intern-S1](https://github.com/InternLM/Intern-S1) repository.
 
-| Task                 | AR-30B-A3B-Sci | SDAR-30B-A3B-Sci (greedy) | SDAR-30B-A3B-Sci (sample) | Intern-S1(235B-A22B) | InternVL3-78B | Qwen2.5-VL-72B | DS-R1-0528 | Qwen3-235B-A22B | Kimi-K2-Instruct | Gemini-2.5 Pro |  o3  | Grok-4 |
+| Task                 | AR-30B-A3B-Sci | SDAR-30B-A3B-Sci(greedy) | SDAR-30B-A3B-Sci(sample) | Intern-S1(235B-A22B) | InternVL3-78B | Qwen2.5-VL-72B | DS-R1-0528 | Qwen3-235B-A22B | Kimi-K2-Instruct | Gemini-2.5 Pro |  o3  | Grok-4 |
 |----------------------|:--------------:|:-------------------------:|:-------------------------:|:--------------------:|:-------------:|:--------------:|:----------:|:----------------:|:----------------:|:--------------:|:----:|:------:|
 | MMLU_pro             | 78.3           | 80.2                      | 80.6                      | 83.5                 | 73.0          | 72.1           | 83.4       | 82.2              | 82.7              | 86.0            | 85.0 | 85.9   |
 | GPQA_diamond         | 61.2           | 73.7                      | 71.8                      | 77.3                 | 49.9          | 49.0           | 80.6       | 71.1              | 77.8              | 83.8            | 83.3 | 87.5   |
 | AIME2024             | 74.9           | 73.3                      | 76.2                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
 | AIME2025             | 60.7           | 63.3                      | 62.2                      | 86.0                 | 10.7          | 10.9           | 87.5       | 81.5              | 51.4              | 83.0            | 88.9 | 91.7   |
 | Livemathbench_hard   | 55.4           | 60.7                      | 57.9                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
-| LCB Code Gen V5      | 51.5           | 40.7                      | 49.1                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
-| LCB Code Gen V6      | 46.3           | 42.3                      | 51.4                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
+| LiveCodeBench_v5      | 51.5           | 40.7                      | 49.1                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
+| LiveCodeBench_v6      | 46.3           | 42.3                      | 51.4                      | –                    | –             | –              | –          | –                 | –                 | –                | –     | –      |
 | ChemBench            | 60.5           | 75.1                      | 75.1                      | 83.4                 | 61.3          | 61.6           | 75.6       | 75.8              | 75.3              | 82.8            | 81.6 | 83.3   |
 | PHYSICS              | 39.0           | 52.9                      | 55.6                      | 44.0                 | 23.1          | 15.7           | –          | –                 | –                 | 40.0            | 47.9 | 42.8   |
 | ProteinLMBench       | 59.5           | 60.7                      | 60.0                      | 63.1                 | 61.6          | 61.0           | 61.4       | 59.8              | 66.7              | 62.9            | 67.7 | 66.2   |
@@ -194,8 +196,8 @@ The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 20
 
 ```
 @misc{JetAstra2025,
-  title={SDAR: Synergy of Diffusion and AutoRegression},
-  author={Shuang Cheng and Dawei Liu and Yihan Bian},
+  title={SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation},
+  author={Shuang Cheng and Yihan Bian and Dawei Liu and Biqing Qi and Qipeng Guo and Kai Chen and Bowen Zhou},
   year={2025},
   institution={Shanghai AI Lab},
   url={https://github.com/JetAstra/SDAR}
