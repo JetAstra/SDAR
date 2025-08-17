@@ -114,7 +114,7 @@ For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, an
 <p align="center">
 
 | Scale | Model | MMLU | GSM8K | Math500 | MathBench | HumanEval | MBPP | IFEval |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1.7B | SDAR-1.7B-Chat | 62.9 | 80.1 | 63.2 | 63.6 | 61.6 | 61.1 | 43.4 |
 |  | Qwen3-1.7B-AR-SFT | 63.8 | 81.1 | 62.0 | 60.5 | 65.9 | 61.9 | 43.3 |
 |  | Qwen3-1.7B-Base | 62.6 | 75.4 | 43.5 | - | - | 55.4 | - |
