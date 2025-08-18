@@ -47,7 +47,7 @@ python generate.py \
 
 #### 2. Using the third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine)
 
-JetEngine enables more efficient inference compared to the built-in implementation.
+JetEngine, a lightweight inference engine for the SDAR series built on [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm), enables more efficient inference compared to the built-in implementation.
 
 ```bash
 git clone https://github.com/JetAstra/SDAR.git
