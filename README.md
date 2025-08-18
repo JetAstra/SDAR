@@ -13,7 +13,13 @@
   <img src="https://img.shields.io/badge/Technical%20Report-Coming%20Soon-orange" />
 </p>
 
-**SDAR**(**S**ynergy of **D**iffusion and **A**uto**R**egression)-model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA opensource AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date.
+**SDAR** (**S**ynergy of **D**iffusion and **A**uto**R**egression) model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA open-source AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date. We highlight three major conclusions from our study:
+
+> [!IMPORTANT]
+>
+> - **Balanced Efficiency:** SDAR unifies the high training efficiency of **AR pretraining** with the fast **parallel inference of diffusion**, delivering both efficient training and inference.
+> - **Fair Comparisons:** Under rigorously controlled experiments, SDAR demonstrates performance on general tasks that is **fully comparable to AR models**, ensuring both credibility and reproducibility.
+> - **Superior Learning Efficiency:** On non-token-level causal data, SDAR demonstrates more efficient fitting ability, achieving **significant gains on GPQA, ChemBench, and Physics tasks**—surpassing AR models of the same scale and approaching or even exceeding leading closed-source models.
 
 ## 🗞️ News
 - [2025-08-15] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
