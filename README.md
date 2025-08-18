@@ -13,7 +13,6 @@
   <img src="https://img.shields.io/badge/Technical%20Report-Coming%20Soon-orange" />
 </p>
 
-
 **SDAR**(**S**ynergy of **D**iffusion and **A**uto**R**egression)-model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA opensource AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date.
 
 ## 🗞️ News
@@ -113,22 +112,16 @@ For **SDAR** models, inference hyperparameters are set to: `block_length = 4`, `
 For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, and the base models **Qwen3-1.7B-Base** and **Qwen3-30B-Base** are derived from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
 
 <p align="center">
+  <img src="assets/table1.png" style="max-width:90%; height:auto;">
+<p align="center">
 
-| Scale | Model                 |       MMLU       |     GSM8K    |      Math500     |     MathBench    |     HumanEval    |     MBPP     |      IFEval      |
-| ----- | --------------------- | :--------------: | :----------: | :--------------: | :--------------: | :--------------: | :----------: | :--------------: |
-| 1.7B  | **SDAR-1.7B-Chat**    |   62.9 (-0.9)   | 80.1 (-1.0) | **63.2 (+1.2)** | **63.6 (+3.1)** |   61.6 (-4.3)   | 61.1 (-0.8) | **43.4 (+0.1)** |
-|       | Qwen3-1.7B-AR-SFT     |     **63.8**     |   **81.1**   |       62.0       |       60.5       |     **65.9**     |   **61.9**   |       43.3       |
-|       | Qwen3-1.7B-Base       |       62.6       |     75.4     |       43.5       |         –        |         –        |     55.4     |         –        |
-| 4B    | SDAR-4B-Chat          |       74.9       |     89.9     |       72.8       |       74.7       |       72.0       |     65.4     |       56.6       |
-| 8B    | SDAR-8B-Chat          |       78.6       |     91.3     |       78.6       |       76.9       |       78.7       |     72.0     |       61.4       |
-| 30B   | **SDAR-30B-A3B-Chat** | **82.8 (+0.6)** | 91.4 (-1.3) | **77.8 (+1.0)** | **79.3 (+0.9)** | **87.2 (+2.4)** | 71.6 (-3.5) | **60.6 (+2.9)** |
-|       | Qwen3-30B-AR-SFT      |       82.2       |   **92.7**   |       76.8       |       78.4       |       84.8       |   **75.1**   |       57.7       |
-|       | Qwen3-30B-Base        |       81.4       |     91.8     |       59.0       |         –        |         –        |     74.4     |         –        |
-</p>
+<details>
+<summary><b>🔑 Key Observations </b></summary>
+  <div style="background:#e6f7ff; border:1px solid #91d5ff; border-radius:6px; padding:10px; margin-top:8px;">
 
-> **Key observations:**
-> - SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
-> - SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
+  - SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
+  - SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
+</details>
 
 #### Efficiency
 
@@ -139,9 +132,13 @@ Additionally, we evaluate how varying the threshold in dynamic inference affects
   <img src="assets/Performace_and_speed.svg" width="100%">
 </p>
 
-> **Key observations:**
-> - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
-> - The speedup effect tends to become more pronounced with increasing model size.
+<details>
+<summary><b>🔑 Key Observations </b></summary>
+  <div style="background:#e6f7ff; border:1px solid #91d5ff; border-radius:6px; padding:10px; margin-top:8px;">
+
+  - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
+  - The speedup effect tends to become more pronounced with increasing model size.
+</details>
 
 ### Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
 #### Settings
@@ -160,49 +157,35 @@ This table presents a **controlled comparison** between AR and SDAR under the sa
 The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 2024, AIME 2025, and LiveMathBench.
 
 <p align="center">
+  <img src="assets/table2.png" style="max-width:90%; height:auto;">
+<p align="center">
 
-| Task               | AR-30B-A3B-Sci | SDAR-30B-A3B-Sci(greedy) | SDAR-30B-A3B-Sci(sample) |
-| ------------------ | :------------: | :----------------------: | :----------------------: |
-| MMLU-pro           |      78.3      |     **80.2 (+1.9)**     |     **80.6 (+2.3)**     |
-| GPQA-diamond       |      61.2      |     **73.7 (+12.5)**    |     **71.8 (+10.6)**    |
-| AIME2024           |      74.9      |         73.3(-1.6)       |     **76.2 (+1.3)**     |
-| AIME2025           |      60.7      |     **63.3 (+2.6)**     |     **62.2 (+1.5)**     |
-| LiveMathBench-hard |      55.4      |     **60.7 (+5.3)**     |     **57.9 (+2.5)**     |
-| LiveCodeBench-v5   |      51.5      |       40.7 (-10.8)      |       49.1 (-2.4)       |
-| LiveCodeBench-v6   |      46.3      |       42.3 (-4.0)       |     **51.4 (+5.1)**     |
-| ChemBench          |      60.5      |     **75.1 (+14.6)**    |     **75.1 (+14.6)**    |
-| PHYSICS            |      39.0      |     **52.9 (+13.9)**    |     **55.6 (+16.6)**    |
-| ProteinLMBench     |      59.5      |     **60.7 (+1.2)**     |     **60.0 (+0.5)**     |
+<details>
+<summary><b>🔑 Key Observations </b></summary>
+  <div style="background:#e6f7ff; border:1px solid #5aa5d3ff; border-radius:6px; padding:10px; margin-top:8px;">
 
-</p>
-
-> **Key observations:**
-> * **Strict experimental comparison (AR vs. SDAR):** Under identical settings, **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with especially notable gains on science-focused tasks such as **GPQA**, **ChemBench**, and **PHYSICS**.
+  - 📈 **Strict experimental comparison (AR vs. SDAR):** Under identical settings, **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with especially notable gains on science-focused tasks such as **GPQA**, **ChemBench**, and **PHYSICS**.
+</details>
 
 ##### 2. Comparison with Other Open/Closed Models
 
 This table positions **SDAR-30B-A3B-Sci(sample)** against leading open-source and closed-source LLMs.
 Scores for external models are sourced from the [InternLM/Intern-S1](https://github.com/InternLM/Intern-S1) repository.
+
+<p align="center">
+  <img src="assets/table3.png" style="max-width:95%; height:auto;">
 <p align="center">
 
-| Model                    | MMLU-pro | AIME2025 | GPQA-diamond | ChemBench | PHYSICS | ProteinLMBench |
-| ------------------------ | :------: | :------: | :----------: | :-------: | :-----: | :------------: |
-| SDAR-30B-A3B-Sci(sample) |   80.6   |   62.2   |     71.8     |    75.1   |   55.6  |      60.0      |
-| Intern-S1(235B-A22B)     |   83.5   |   86.0   |     77.3     |    83.4   |   44.0  |      63.1      |
-| InternVL3-78B            |   73.0   |   10.7   |     49.9     |    61.3   |   23.1  |      61.6      |
-| Qwen2.5-VL-72B           |   72.1   |   10.9   |     49.0     |    61.6   |   15.7  |      61.0      |
-| DS-R1-0528               |   83.4   |   87.5   |     80.6     |    75.6   |    –    |      61.4      |
-| Qwen3-235B-A22B          |   82.2   |   81.5   |     71.1     |    75.8   |    –    |      59.8      |
-| Kimi-K2-Instruct         |   82.7   |   51.4   |     77.8     |    75.3   |    –    |      66.7      |
-| Gemini-2.5 Pro           |   86.0   |   83.0   |     83.8     |    82.8   |   40.0  |      62.9      |
-| o3                       |   85.0   |   88.9   |     83.3     |    81.6   |   47.9  |      67.7      |
-| Grok-4                   |   85.9   |   91.7   |     87.5     |    83.3   |   42.8  |      66.2      |
-</p>
+<details>
+<summary><b>🔑 Key Observations </b></summary>
+  <div style="background:#e6f7ff; border:1px solid #91d5ff; border-radius:6px; padding:10px; margin-top:8px;">
 
-> **Key observations:**
->   * On **GPQA**, SDAR surpasses strong open-source baselines like **Qwen3-235B-A22B** and approaches the performance of top closed-source models including **Gemini-2.5 Pro**, **o3**, and **Grok-4**.
->   * On **ChemBench**, SDAR matches or outperforms most open-source systems and narrows the gap to state-of-the-art proprietary models, demonstrating strong scientific reasoning ability.
->   * On **PHYSICS**, **SDAR achieves the best score across all listed models (55.6)**, surpassing much larger open- and closed-source models such as **Intern-S1(235B-A22B)**, **Gemini-2.5 Pro**, **o3**, and **Grok-4** — establishing a new **SOTA** on this benchmark.
+  - 🎓 **GPQA-diamond:** Scores **71.8**, surpassing the open-source baseline **Qwen3-235B-A22B (71.1)** and approaching **leading commercial models** such as **Gemini-2.5 Pro (83.8)**, **o3 (83.3)**, and **Grok-4 (87.5)**.  
+  - 🧪 **ChemBench:** Scores **75.1**, comparable to strong open-source systems (**Qwen3-235B-A22B 75.8**) and slightly behind **leading commercial models** (**Gemini-2.5 Pro 82.8**, **Grok-4 83.3**), showing competitive performance in chemistry tasks.  
+  - ⚛️ **Physics:** Scores **55.6**, the highest among all listed models, surpassing much larger **commercial systems** (**Intern-S1 44.0**, **Gemini-2.5 Pro 40.0**, **o3 47.9**, **Grok-4 42.8**) and establishing a new **SOTA**.  
+  </div>
+</details>
+
 
 ## 🔥 Highlight
 
