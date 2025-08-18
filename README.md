@@ -27,6 +27,17 @@
 - [2025-09] Release of the **technical report & training framework** for SDAR, with detailed insights into our methodology and findings 📄.
 - [2025-10] Release of a **production-ready inference engine** for SDAR, optimized for deployment in real-world applications ⚡.
 
+## 🗂️ Model Zoo
+
+
+| Model                 | Type               | Link                                                                 |
+|------------------------|--------------------|----------------------------------------------------------------------|
+| SDAR-1.7B-Chat         | Chat               | [huggingface.co/JetLM/SDAR-1.7B-Chat](https://huggingface.co/JetLM/SDAR-1.7B-Chat) |
+| SDAR-4B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-4B-Chat](https://huggingface.co/JetLM/SDAR-4B-Chat)     |
+| SDAR-8B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-8B-Chat](https://huggingface.co/JetLM/SDAR-8B-Chat)     |
+| SDAR-30B-A3B-Chat      | Chat               | [huggingface.co/JetLM/SDAR-30B-A3B-Chat](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) |
+| SDAR-30B-A3B-Sci       | Thinking (Science)| [huggingface.co/JetLM/SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) |
+
 ## ⚙️ Usage
 
 ### Environment Setup
