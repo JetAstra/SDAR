@@ -176,16 +176,12 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
   <img src="assets/table3.png" style="max-width:95%; height:auto;">
 <p align="center">
 
-<details>
-<summary><b>🔑 Key Observations </b></summary>
-  <div style="background:#e6f7ff; border:1px solid #91d5ff; border-radius:6px; padding:10px; margin-top:8px;">
-
-  - 🎓 **GPQA-diamond:** Scores **71.8**, surpassing the open-source baseline **Qwen3-235B-A22B (71.1)** and approaching **leading commercial models** such as **Gemini-2.5 Pro (83.8)**, **o3 (83.3)**, and **Grok-4 (87.5)**.  
-  - 🧪 **ChemBench:** Scores **75.1**, comparable to strong open-source systems (**Qwen3-235B-A22B 75.8**) and slightly behind **leading commercial models** (**Gemini-2.5 Pro 82.8**, **Grok-4 83.3**), showing competitive performance in chemistry tasks.  
-  - ⚛️ **Physics:** Scores **55.6**, the highest among all listed models, surpassing much larger **commercial systems** (**Intern-S1 44.0**, **Gemini-2.5 Pro 40.0**, **o3 47.9**, **Grok-4 42.8**) and establishing a new **SOTA**.  
-  </div>
-</details>
-
+> [!NOTE]
+> **🔑 Key Observations**
+>
+> - 🎓 **GPQA-diamond:** Scores **71.8**, surpassing the open-source baseline **Qwen3-235B-A22B (71.1)** and approaching **leading commercial models** such as **Gemini-2.5 Pro (83.8)**, **o3 (83.3)**, and **Grok-4 (87.5)**.  
+> - 🧪 **ChemBench:** Scores **75.1**, comparable to strong open-source systems (**Qwen3-235B-A22B 75.8**) and slightly behind **leading commercial models** (**Gemini-2.5 Pro 82.8**, **Grok-4 83.3**), showing competitive performance in chemistry tasks.  
+> - ⚛️ **Physics:** Scores **55.6**, the highest among all listed models, surpassing much larger **commercial systems** (**Intern-S1 44.0**, **Gemini-2.5 Pro 40.0**, **o3 47.9**, **Grok-4 42.8**) and establishing a new **SOTA**.  
 
 ## 🔥 Highlight
 
