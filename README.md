@@ -215,6 +215,7 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 - Project Leader: Biqing Qi 
 
 For the full list of contributors, please refer to the author list in the citation. We are also deeply grateful to everyone who engaged in discussions and provided valuable feedback throughout the development of this project.
+
 ---
 
 📬 Contact
