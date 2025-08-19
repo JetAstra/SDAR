@@ -15,7 +15,7 @@
 > [!Key Features]
 >
 > > **🚀 Low-Cost AR-to-BlockDiffusion :**
-> - ** ⚡ 2-4× Faster Inference :**  
+> ** ⚡ 2-4× Faster Inference :**  
 > > **🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) :** 
 
 ## 🔥 News
