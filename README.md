@@ -229,10 +229,10 @@ We would like to express our gratitude to the following works （[MDLM](https://
 
 ## 🤝 Core Contributors
 
-- Shang Cheng: Initial idea proposal, model evaluation, and inference.
-- Dawei Liu: Implementation of model training code, training experiments.
-- Yihan Bian: Engineering optimization, inference & training acceleration, MOE training code implementation.
-- Biqing Qi: Project Leader and overall coordination.
+- **Shang Cheng**: Initial idea proposal, model evaluation, and inference.
+- **Dawei Liu**: Implementation of model training code, training experiments.
+- **Yihan Bian**: Engineering optimization, inference & training acceleration, MOE training code implementation.
+- **Biqing Qi**: Project Leader and overall coordination.
 
 > [!NOTE]
 > *Note: This project is a collaborative effort, with all contributors solving challenges together.*
@@ -243,8 +243,8 @@ For the full list of contributors, please refer to the author list in the citati
 
 For issues or inquiries:
 
-- Shang Cheng, Shanghai AI Lab (chengshuang@pjlab.org.cn)
-- Biqing Qi, Shanghai AI Lab (qibiqing@pjlab.org.cn)
+- **Shang Cheng**, Shanghai AI Lab (chengshuang@pjlab.org.cn)
+- **Biqing Qi (Corrsponding Author)**, Shanghai AI Lab (qibiqing@pjlab.org.cn)
 
 ## 🔬 Citation
 
