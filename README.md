@@ -207,12 +207,21 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 - [ ] release training code
 - [ ] release reasoning models
 
+🤝 Core Contributors
+
+XX: Shang Cheng 
+XX: Dawei Liu 
+XX: Yihan Bian 
+Project Leader: Biqing Qi （qibiqing@pjlab.org.cn）
+
+For the full list of contributors, please refer to the author list in the citation. We are also deeply grateful to everyone who engaged in discussions and provided valuable feedback throughout the development of this project.
+
 ## 🔬 Citation
 
 ```
 @misc{JetAstra2025,
   title={SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation},
-  author={Shuang Cheng and Yihan Bian and Dawei Liu and Biqing Qi and Qipeng Guo and Kai Chen and Bowen Zhou},
+  author={Shuang Cheng and Yihan Bian and Dawei Liu and Yihao Liu and Lingfeng Zhang, Wenghai Wang, Qipeng Guo and Kai Chen and Biqing Qi and Bowen Zhou},
   year={2025},
   institution={Shanghai AI Lab},
   url={https://github.com/JetAstra/SDAR}
