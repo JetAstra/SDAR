@@ -19,13 +19,11 @@
 > - **Superior Learning Efficiency:** On complex scientific reasoning tasks (e.g., GPQA, ChemBench, Physics), SDAR shows **clear gains over AR models** of the same scale, approaching or even exceeding leading closed-source systems.
 
 
-## 🗞️ News
+## 🔥 News
 - [2025-08-15] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
 - [2025-07-20] We’ve open-sourced the weights for our [1.7B](https://huggingface.co/JetLM/SDAR-1.7B-Chat), [4B](https://huggingface.co/JetLM/SDAR-4B-Chat), [8B](https://huggingface.co/JetLM/SDAR-8B-Chat) dense models, along with our [30B](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) MoE model — now available on Hugging Face 🤗.
 
-## 🛣️ Upcoming
-- [2025-09] Release of the **technical report & training framework** for SDAR, with detailed insights into our methodology and findings 📄.
-- [2025-10] Release of a **production-ready inference engine** for SDAR, optimized for deployment in real-world applications ⚡.
+
 ## 📑 Content
 - [SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation](https://github.com/JetAstra/SDAR)
   - [🗞️ News](#️-news)
@@ -221,11 +219,9 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 
 ## 🚩 Roadmap
 
-- [x] release non-reasoning models
-- [x] release naive inference code
-- [x] release inference engine
-- [ ] release training code
-- [ ] release reasoning models
+- [ ] Release STAR Technical Report
+- [ ] Release Inference Engine and Training Framework
+- [ ] More Features are working in Progess
 
 
 ## 👏 Acknowledge
@@ -241,7 +237,7 @@ We would like to express our gratitude to the following works for providing impo
 - Shang Cheng: Initial idea proposal, model evaluation, and inference.
 - Dawei Liu: Implementation of model training code, training experiments.
 - Yihan Bian: Engineering optimization, inference & training acceleration, MOE training code implementation.
-- Biqing Qi: Project leader and overall coordination.
+- Biqing Qi: Project Leader and overall coordination.
 
 > [!NOTE]
 > *Note: This project is a collaborative effort, with all contributors solving challenges together.*
@@ -260,7 +256,7 @@ For issues or inquiries:
 ```
 @misc{JetAstra2025,
   title={SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation},
-  author={Shuang Cheng and Yihan Bian and Dawei Liu and Yuhua Jiang and Yihao Liu and Lingfeng Zhang, Wenghai Wang, Qipeng Guo and Kai Chen and Biqing Qi and Bowen Zhou},
+  author={Shuang Cheng and Yihan Bian and Dawei Liu and Yuhua Jiang and Yihao Liu and Lingfeng Zhang, Wenghai Wang, Qipeng Guo and Kai Chen and Biqing Qi* and Bowen Zhou*},
   year={2025},
   institution={Shanghai AI Lab},
   url={https://github.com/JetAstra/SDAR}
