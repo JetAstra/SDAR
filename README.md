@@ -27,26 +27,24 @@
 - [2025-09] Release of the **technical report & training framework** for SDAR, with detailed insights into our methodology and findings 📄.
 - [2025-10] Release of a **production-ready inference engine** for SDAR, optimized for deployment in real-world applications ⚡.
 ## 📑 Content
-* [🗞️ News](#️-news)
-* [🛣️ Upcoming](#️-upcoming)
-* [🗂️ Model Zoo](#️-model-zoo)
-* [⚙️ Usage](#️-usage)
-
-  * [Environment Setup](#environment-setup)
-  * [Training](#training)
-  * [Inference](#inference)
-
-* [📊 Benchmarks](#-benchmarks)
-
-  * [Scaling the Qwen3 Series](#scaling-the-qwen3-series-with-sdar-for-general-non-reasoning-tasks)
-  * [Applying SDAR to Qwen3-30B-MoE](#applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
-* [🔥 Highlight](#-highlight)
-* [🚩 Roadmap](#-roadmap)
-* [👏 Acknowledge](#-acknowledge)
-* [🤝 Core Contributors](#-core-contributors)
-* [📬 Contact](#-contact)
-* [🔬 Citation](#-citation)
-* [⭐️ Star History](#️-star-history)
+- [SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation](https://github.com/JetAstra/SDAR)
+  - [🗞️ News](#️-news)
+  - [🛣️ Upcoming](#️-upcoming)
+  - [🗂️ Model Zoo](#️-model-zoo)
+  - [⚙️ Usage](#️-usage)
+    - [Environment Setup](#environment-setup)
+    - [Training](#training)
+    - [Inference](#inference)
+  - [📊 Benchmarks](#-benchmarks)
+    - [Scaling the Qwen3 Series](#scaling-the-qwen3-series-with-sdar-for-general-non-reasoning-tasks)
+    - [Applying SDAR to Qwen3-30B-MoE](#applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
+  - [🔥 Highlight](#-highlight)
+  - [🚩 Roadmap](#-roadmap)
+  - [👏 Acknowledge](#-acknowledge)
+  - [🤝 Core Contributors](#-core-contributors)
+  - [📬 Contact](#-contact)
+  - [🔬 Citation](#-citation)
+  - [⭐️ Star History](#️-star-history)
 
 ## 🗂️ Model Zoo
 
