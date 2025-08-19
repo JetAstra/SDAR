@@ -24,21 +24,21 @@ Highlights:
 
 ## 📑 Contents
 - [SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation](https://github.com/JetAstra/SDAR)
-  - [🔥 News](#news)
-  - [⚙️ Usage](#usage)
+  - [🔥 News](#-news)
+  - [⚙️ Usage](#-usage)
     - [Environment Setup](#environment-setup)
     - [Training](#training)
     - [Inference](#inference)
-  - [📊 Preliminary Experiments](#preliminary-experiments)
+  - [📊 Preliminary Experiments](#-preliminary-experiments)
     - [Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks](#part-i-scaling-the-qwen3-series-with-sdar-for-general-non-reasoning-tasks)
     - [Part II: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks](#part-ii-applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
-  - [🗂️ Model Zoo](#model-zoo)
-  - [🚩 Roadmap](#roadmap)
-  - [👏 Acknowledge](#acknowledge)
-  - [🤝 Core Contributors](#core-contributors)
-  - [📬 Contact](#contact)
-  - [🔬 Citation](#citation)
-  - [⭐️ Star History](#star-history)
+  - [🗂️ Model Zoo](#-model-zoo)
+  - [🚩 Roadmap](#-roadmap)
+  - [👏 Acknowledge](#-acknowledge)
+  - [🤝 Core Contributors](#-core-contributors)
+  - [📬 Contact](#-contact)
+  - [🔬 Citation](#-citation)
+  - [⭐️ Star History](#-star-history)
 
 ## ⚙️ Usage
 
