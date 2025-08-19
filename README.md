@@ -225,12 +225,7 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 
 
 ## 👏 Acknowledge
-We would like to express our gratitude to the following works for providing important theoretical foundations and inspiration for SDAR:
-
-* MDLM — [arXiv](https://arxiv.org/pdf/2406.07524)
-* LLada — [arXiv](https://arxiv.org/abs/2502.09992)
-* DiffuLLaMA — [arXiv](https://arxiv.org/abs/2410.17891)
-* Block Diffusion — [arXiv](https://arxiv.org/abs/2503.09573)
+We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR:
 
 ## 🤝 Core Contributors
 
