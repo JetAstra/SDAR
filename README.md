@@ -13,9 +13,9 @@ We introduce SDAR (Synergy of Diffusion and AutoRegression), a large-scale diffu
 Highlights:
 - 🚀 Low-Cost AR-to-BlockDiffusion
 - ⚡ 2-4× Faster Inference 
-- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) 
+- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) )
 
-**SDAR is still an early experimental state; we are actively developing more systematic and warmly welcome collaborations in this direction.**
+**SDAR is still an early experimental state, we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
 ## 🔥 News
 
@@ -118,8 +118,8 @@ outputs = llm.generate_streaming([prompt], sampling_params)
 
 ## 📊 Preliminary Experiments
 ### Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
-
 #### Training Setup
+
 We start from **Qwen3-1.7B-Base**, **Qwen3-4B-Base**, **Qwen3-8B-Base**, and **Qwen3-30B-A3B-Base**.  
 Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-quality open-source data, followed by supervised fine-tuning (4B tokens).
 
@@ -127,36 +127,39 @@ Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-
 - **AR training**: Qwen3-1.7B-AR-SFT / Qwen3-30B-AR-SFT.
 
 #### Evaluation Setup
+
 - **Decoding**  
   - SDAR family: greedy decoding with `block_length = 4`, `denoising_steps = 4`.
   - AR baselines: greedy decoding.
 - **Base model sources**  
-  Qwen3-1.7B-Base / Qwen3-30B-Base are taken from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
+  - Qwen3-1.7B-Base / Qwen3-30B-Base are taken from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
 
 #### Experiments of Performance
+
+*Table 1. Overall performance across general benchmarks.*
 ![Benchmark results](assets/table1.png)
-*Figure 1. Overall performance across general benchmarks.*
 
 > [!NOTE]
 > - **SDAR-1.7B-Chat** is on par with **Qwen3-1.7B-AR-SFT** across most benchmarks.  
 > - **SDAR-30B-A3B-Chat** performs comparably to **Qwen3-30B-AR-SFT**.
 
 #### Experiments of Efficiency
+
 We compare **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under **static** and **dynamic** decoding:
 
 - **Static**: each decoding step emits a fixed number of tokens, independent of confidence.
-- **Dynamic**: within a block, once the confidence exceeds a threshold $\theta$, the decoder releases multiple tokens at once (up to the block size).
+- **Dynamic**: within a block, once the confidence exceeds a threshold $\theta$, the decoder generate multiple tokens at once (up to the block size).
 
 ![Accuracy–speed trade-off](assets/Performace_and_speed.svg)
-*Figure 2. Accuracy–speedup under static vs. dynamic inference; dynamic threshold sweeps relative to static.*
+*Figure 1. Accuracy–speedup under static vs. dynamic inference; dynamic threshold sweeps relative to static.*
 
 > [!NOTE]
 > - **SDAR** delivers **>2× speedup** over static inference **with negligible accuracy loss**; its **static speed** is comparable to AR models.  
 > - The **speedup scales with model size**, making SDAR increasingly favorable for larger models.
 
 ### Part II: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
-
 #### Training Setup
+
 We start from **Qwen3-30B-A3B-Base** and derive two science-oriented bases via large-scale pretraining and annealing, followed by reasoning SFT:
 
 1) 500B tokens (continual pretraining) + 500B tokens (annealing) → **AR-30B-A3B-Sci-Base**  
@@ -164,6 +167,7 @@ We start from **Qwen3-30B-A3B-Base** and derive two science-oriented bases via l
 3) Fine-tune both bases on reasoning datasets → **AR-30B-A3B-Sci** and **SDAR-30B-A3B-Sci**
 
 #### Evaluation Setup
+
 - **Decoding & inference.**  
   - **AR**: sampling decoding with `temperature=0.6`, `top_p=0.95`, `top_k=20`.  
   - **SDAR**: `block_length=4`, `denoising_steps=4`; we report both **(G)** *greedy* and **(S)** *sampling* (`temperature=1.0`, `top_p=1.0`, `top_k=0`) decoding strategies.
@@ -171,20 +175,22 @@ We start from **Qwen3-30B-A3B-Base** and derive two science-oriented bases via l
   Averages over 8 runs for GPQA and 32 runs for AIME 202, AIME 2025, and LMB-hard.  
   Abbreviations: LMB = *LiveMathBench*, LCB = *LiveCodeBench*, **(S)** = *sampling*, **(G)** = *greedy*.
 
-#### Experiments of Performance 
-
+#### Experiments of Performance
 ##### 1. Strict Experimental Comparison
+
+*Table 2. Strict comparison under identical backbones and datasets.*
 ![AR vs. SDAR on reasoning benchmarks](assets/table2.png)
-*Figure 2. Strict comparison under identical backbones and datasets.*
+
 
 > [!NOTE]
 > **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with pronounced gains on science-focused tasks such as **GPQA**, **ChemBench**, and **PHYSICS**.
 
 ##### 2. Comparison to External Open/Closed Models
+
 We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. External scores are taken from [InternLM/Intern-S1](https://github.com/InternLM/Intern-S1).
 
+*Table 3. Positioning against external models (sources: InternLM/Intern-S1).*
 ![SDAR vs. open/closed models](assets/table3.png)
-*Figure 3. Positioning against external models (sources: InternLM/Intern-S1).*
 
 ## 🗂️ Model Zoo
 
@@ -203,6 +209,7 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 - [ ] More Features are working in progress
 
 ## 👏 Acknowledge
+
 We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
 
 ## 🤝 Core Contributors
@@ -235,6 +242,7 @@ For issues or inquiries:
   url={https://github.com/JetAstra/SDAR}
 }
 ```
+
 ## ⭐️ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=JetAstra/SDAR&type=Date)](https://www.star-history.com/#JetAstra/SDAR&Date)
