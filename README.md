@@ -119,16 +119,17 @@ outputs = llm.generate_streaming([prompt], sampling_params)
 ```
 
 
-## 📊 Benchmarks
-### Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
-#### Settings
+## 📊 Preliminary Experiments
+
+### PartI: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
+#### Training Settings
 
 We use Qwen3-1.7B-Base, Qwen3-4B-Base, Qwen3-8B-Base, and Qwen3-30B-A3B-Base as base models. Each model undergoes continued pretraining on 0.14% (50B) tokens of relatively low quality data (opensource data), followed by fine-tuning on the general SFT dataset.
 
 - SDAR-1.7B-Chat, SDAR-4B-Chat, SDAR-8B-Chat, and SDAR-30B-A3B-Chat are trained using the **SDAR training scheme**.
 - Qwen3-1.7B-AR-SFT and Qwen3-30B-AR-SFT are trained using the **autoregressive (AR) training scheme**.
 
-#### Performance
+#### Experiemnt of Performance
 
 For **SDAR** models, inference hyperparameters are set to: `block_length = 4`, `denoising_steps = 4`, greedy decoding.
 
@@ -142,7 +143,7 @@ For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, an
 > - SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
 > - SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
 
-#### Efficiency
+#### Experiemnt of Efficiency
 
 We compare the performance of **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under both *dynamic* and *static* inference settings.
 Additionally, we evaluate how varying the threshold in dynamic inference affects speed relative to static inference.
@@ -155,13 +156,13 @@ Additionally, we evaluate how varying the threshold in dynamic inference affects
 > - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
 > - The speedup effect tends to become more pronounced with increasing model size.
 
-### Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
-#### Settings
+### PartII: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
+#### Training Settings
 
 Starting from **Qwen3-30B-A3B-Base**, we trained on 500B tokens (including scientific data) using the NTP strategy, followed by 500B tokens of annealing, resulting in the **AR-30B-A3B-Sci-Base** model. Based on AR-30B-A3B-Sci-Base, we then performed continued training with the SDAR strategy using 50B tokens randomly sampled from the 500B annealing dataset, producing the **SDAR-30B-A3B-Sci-Base** model. Finally, both AR-30B-A3B-Sci-Base and SDAR-30B-A3B-Sci-Base were further fine-tuned on reasoning datasets to obtain the **AR-30B-A3B-Sci** and **SDAR-30B-A3B-Sci** models, respectively.
 
 
-#### Performance
+#### Experiemnt of Performance
 
 For the **AR-30B-A3B-Sci** model, we use decoding parameters `temperature=0.6`, `top_p=0.95`, and `top_k=20`.
 For the **SDAR-30B-A3B-Sci** model, we set `block_length=4` and `denoising_steps=4`, and perform decoding with both greedy and sampling strategies, where the sampling parameters are `temperature=1.0`, `top_p=1.0`, and `top_k=0`. 
@@ -187,22 +188,6 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 <p align="center">
   <img src="assets/table3.png" style="max-width:95%; height:auto;">
 <p align="center">
-
-> [!NOTE]
-> - 🎓 **GPQA-diamond:** Scores **71.8**, surpassing the open-source baseline **Qwen3-235B-A22B (71.1)** and approaching **leading commercial models** such as **Gemini-2.5 Pro (83.8)**, **o3 (83.3)**, and **Grok-4 (87.5)**.  
-> - 🧪 **ChemBench:** Scores **75.1**, comparable to strong open-source systems (**Qwen3-235B-A22B 75.8**) and slightly behind **leading commercial models** (**Gemini-2.5 Pro 82.8**, **Grok-4 83.3**), showing competitive performance in chemistry tasks.  
-> - ⚛️ **Physics:** Scores **55.6**, the highest among all listed models, surpassing much larger **commercial systems** (**Intern-S1 44.0**, **Gemini-2.5 Pro 40.0**, **o3 47.9**, **Grok-4 42.8**) and establishing a new **SOTA**.  
-
-## 🔥 Highlight
-
-1. **Innovation** — Alleviates the inefficiency of autoregressive (AR) models during inference while preserving their training efficiency. Additionally, it leverages diffusion mechanisms to reduce causal inductive bias in relevant scenarios.
-
-2. **Efficient Computation** — Integrates the training efficiency of AR models with the fast inference capabilities of diffusion models, achieving up to **2× faster inference**.
-
-3. **Strong Performance** — Demonstrates state-of-the-art results across diverse benchmarks:
-   - The **non-reasoning variant** matches or outperforms the strongest existing AR models of the same scale.
-   - The **reasoning variant** performs competitively with top-tier **Qwen3** models.
-   - Unlike most current diffusion-based LMs—often limited to small-scale experiments or niche tasks (e.g., code generation)—**our models are production-ready and widely applicable**.
 
 ## 🗂️ Model Zoo
 
