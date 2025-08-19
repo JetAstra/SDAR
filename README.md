@@ -207,6 +207,10 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 - [ ] release training code
 - [ ] release reasoning models
 
+
+👏 Acknowledge
+MARTI is developed primarily based on OpenRLHF. We would like to express our gratitude to the developers of OpenRLHF, as well as to the teams behind vLLM, Ray and DeepSpeed for their invaluable contributions.
+
 🤝 Core Contributors
 
 - XX: Shang Cheng
