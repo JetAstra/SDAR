@@ -13,34 +13,32 @@ We introduce SDAR (Synergy of Diffusion and AutoRegression), a large-scale diffu
 Highlights:
 - 🚀 Low-Cost AR-to-BlockDiffusion
 - ⚡ 2-4× Faster Inference 
-- 🧠 Advanced performance on science reasoning benchmarks (e.g., GPQA, ChemBench, #1 ranking on Physics) 
+- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) 
 
 **SDAR is still an early experimental state; we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
 ## 🔥 News
+
 - [2025-08-15] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
 - [2025-07-20] We’ve open-sourced the weights for our [1.7B](https://huggingface.co/JetLM/SDAR-1.7B-Chat), [4B](https://huggingface.co/JetLM/SDAR-4B-Chat), [8B](https://huggingface.co/JetLM/SDAR-8B-Chat) dense models, along with our [30B](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) MoE model — now available on Hugging Face 🤗.
 
-
-## 📑 Content
+## 📑 Contents
 - [SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation](https://github.com/JetAstra/SDAR)
-  - [🗞️ News](#️-news)
-  - [🛣️ Upcoming](#️-upcoming)
-  - [🗂️ Model Zoo](#️-model-zoo)
-  - [⚙️ Usage](#️-usage)
+  - [🔥 News](#news)
+  - [⚙️ Usage](#usage)
     - [Environment Setup](#environment-setup)
     - [Training](#training)
     - [Inference](#inference)
-  - [📊 Benchmarks](#-benchmarks)
-    - [Scaling the Qwen3 Series](#scaling-the-qwen3-series-with-sdar-for-general-non-reasoning-tasks)
-    - [Applying SDAR to Qwen3-30B-MoE](#applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
-  - [🔥 Highlight](#-highlight)
-  - [🚩 Roadmap](#-roadmap)
-  - [👏 Acknowledge](#-acknowledge)
-  - [🤝 Core Contributors](#-core-contributors)
-  - [📬 Contact](#-contact)
-  - [🔬 Citation](#-citation)
-  - [⭐️ Star History](#️-star-history)
+  - [📊 Preliminary Experiments](#preliminary-experiments)
+    - [Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks](#part-i-scaling-the-qwen3-series-with-sdar-for-general-non-reasoning-tasks)
+    - [Part II: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks](#part-ii-applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
+  - [🗂️ Model Zoo](#model-zoo)
+  - [🚩 Roadmap](#roadmap)
+  - [👏 Acknowledge](#acknowledge)
+  - [🤝 Core Contributors](#core-contributors)
+  - [📬 Contact](#contact)
+  - [🔬 Citation](#citation)
+  - [⭐️ Star History](#star-history)
 
 ## ⚙️ Usage
 
@@ -119,41 +117,6 @@ outputs = llm.generate_streaming([prompt], sampling_params)
 
 
 ## 📊 Preliminary Experiments
-
-<!-- ### PartI: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
-#### Training Settings
-
-We use Qwen3-1.7B-Base, Qwen3-4B-Base, Qwen3-8B-Base, and Qwen3-30B-A3B-Base as base models. Each model undergoes continued pretraining on 0.14% (50B) tokens of relatively low quality data (opensource data), followed by fine-tuning on the general SFT dataset.
-
-- SDAR-1.7B-Chat, SDAR-4B-Chat, SDAR-8B-Chat, and SDAR-30B-A3B-Chat are trained using the **SDAR training scheme**.
-- Qwen3-1.7B-AR-SFT and Qwen3-30B-AR-SFT are trained using the **autoregressive (AR) training scheme**.
-
-#### Experiemnt of Performance
-
-For **SDAR** models, inference hyperparameters are set to: `block_length = 4`, `denoising_steps = 4`, greedy decoding.
-
-For **Qwen3-1.7B-AR-SFT** and **Qwen3-30B-AR-SFT**, we use *greedy decoding*, and the base models **Qwen3-1.7B-Base** and **Qwen3-30B-Base** are derived from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
-
-<p align="center">
-  <img src="assets/table1.png" style="max-width:90%; height:auto;">
-<p align="center">
-
-> [!NOTE]
-> - SDAR-1.7B-Chat achieves comparable performance to Qwen3-1.7B-AR-SFT across most benchmarks.
-> - SDAR-30B-A3B-Chat performs on par with Qwen3-30B-AR-SFT on the evaluated benchmarks.
-
-#### Experiemnt of Efficiency
-
-We compare the performance of **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under both *dynamic* and *static* inference settings.
-Additionally, we evaluate how varying the threshold in dynamic inference affects speed relative to static inference.
-
-<p align="center">
-  <img src="assets/Performace_and_speed.svg" width="100%">
-</p>
-
-> [!NOTE]
-> - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
-> - The speedup effect tends to become more pronounced with increasing model size. -->
 ### Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
 
 #### Training Setup
@@ -235,10 +198,9 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 
 ## 🚩 Roadmap
 
-- [ ] Release STAR Technical Report
+- [ ] Release SDAR Technical Report
 - [ ] Release Inference Engine and Training Framework
 - [ ] More Features are working in progress
-
 
 ## 👏 Acknowledge
 We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
