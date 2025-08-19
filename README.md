@@ -20,10 +20,9 @@ Key Features:
 
 > [!Key Features]
 >
-> - **Balanced Efficiency:** SDAR unifies the **efficient training** of AR models with the **parallel inference** of diffusion, achieving both fast training and inference.  
-> - **Fair Comparisons:** In rigorously controlled experiments, SDAR achieves **on-par general task performance** with strong AR baselines, ensuring credibility and reproducibility.  
-> - **Superior Learning Efficiency:** On complex scientific reasoning tasks (e.g., GPQA, ChemBench, Physics), SDAR shows **clear gains over AR models** of the same scale, approaching or even exceeding leading closed-source systems.
-
+> > - **🚀 Low-Cost AR-to-BlockDiffusion :**
+> - ** ⚡ 2-4× Faster Inference :**  
+> > - **🧠Advanced performance in Science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) :** 
 
 ## 🔥 News
 - [2025-08-15] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
