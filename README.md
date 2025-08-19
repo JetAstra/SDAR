@@ -219,8 +219,8 @@ For the full list of contributors, please refer to the author list in the citati
 📬 Contact
 For issues or inquiries:
 
-Shang Cheng, Shanghai AI Lab ()
-Biqing Qi, Shanghai AI Lab (qibiqing@pjlab.org.cn)
+- Shang Cheng, Shanghai AI Lab ()
+- Biqing Qi, Shanghai AI Lab (qibiqing@pjlab.org.cn)
 
 ## 🔬 Citation
 
