@@ -15,7 +15,7 @@ Key Features:
 - ⚡ 2-4× Faster Inference 
 - 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) 
 
-**SDAR is still a early experimental State, we are actively developing more systemical and warmly welcome collobrations in this drection.**
+**SDAR is still a early experimental State, we are actively developing more systematic and warmly welcome collobrations in this drection.**
 
 
 ## 🔥 News
