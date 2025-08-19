@@ -8,11 +8,17 @@
 
 </div>
 
-
 **SDAR** (**S**ynergy of **D**iffusion and **A**uto**R**egression) model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA open-source AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date. We highlight three major conclusions from our study:
 
-> [!IMPORTANT]
-> Take-home message
+** SDAR is still a early experimental State, we are actively developing more systemical and warmly welcome collobrations in this drection. **
+
+Key Features:
+- Multi-Agent Inference + RL Training in a unified framework
+- Graph-based workflows (debate, chain-of-agents, mixture-of-agents)
+- Support for heterogeneous models within the same agent graph
+- Advanced performance on reasoning benchmarks (e.g., AIME)
+
+> [!Key Features]
 >
 > - **Balanced Efficiency:** SDAR unifies the **efficient training** of AR models with the **parallel inference** of diffusion, achieving both fast training and inference.  
 > - **Fair Comparisons:** In rigorously controlled experiments, SDAR achieves **on-par general task performance** with strong AR baselines, ensuring credibility and reproducibility.  
@@ -43,17 +49,6 @@
   - [📬 Contact](#-contact)
   - [🔬 Citation](#-citation)
   - [⭐️ Star History](#️-star-history)
-
-## 🗂️ Model Zoo
-
-
-| Model                 | Type               | Link                                                                 |
-|------------------------|--------------------|----------------------------------------------------------------------|
-| SDAR-1.7B-Chat         | Chat               | [huggingface.co/JetLM/SDAR-1.7B-Chat](https://huggingface.co/JetLM/SDAR-1.7B-Chat) |
-| SDAR-4B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-4B-Chat](https://huggingface.co/JetLM/SDAR-4B-Chat)     |
-| SDAR-8B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-8B-Chat](https://huggingface.co/JetLM/SDAR-8B-Chat)     |
-| SDAR-30B-A3B-Chat      | Chat               | [huggingface.co/JetLM/SDAR-30B-A3B-Chat](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) |
-| SDAR-30B-A3B-Sci       | Thinking (Science)| [huggingface.co/JetLM/SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) |
 
 ## ⚙️ Usage
 
@@ -215,6 +210,16 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
    - The **non-reasoning variant** matches or outperforms the strongest existing AR models of the same scale.
    - The **reasoning variant** performs competitively with top-tier **Qwen3** models.
    - Unlike most current diffusion-based LMs—often limited to small-scale experiments or niche tasks (e.g., code generation)—**our models are production-ready and widely applicable**.
+
+## 🗂️ Model Zoo
+
+| Model                 | Type               | Link                                                                 |
+|------------------------|--------------------|----------------------------------------------------------------------|
+| SDAR-1.7B-Chat         | Chat               | [huggingface.co/JetLM/SDAR-1.7B-Chat](https://huggingface.co/JetLM/SDAR-1.7B-Chat) |
+| SDAR-4B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-4B-Chat](https://huggingface.co/JetLM/SDAR-4B-Chat)     |
+| SDAR-8B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-8B-Chat](https://huggingface.co/JetLM/SDAR-8B-Chat)     |
+| SDAR-30B-A3B-Chat      | Chat               | [huggingface.co/JetLM/SDAR-30B-A3B-Chat](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) |
+| SDAR-30B-A3B-Sci       | Thinking (Science)| [huggingface.co/JetLM/SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) |
 
 
 ## 🚩 Roadmap
