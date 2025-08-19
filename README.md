@@ -121,7 +121,7 @@ outputs = llm.generate_streaming([prompt], sampling_params)
 
 ## 📊 Preliminary Experiments
 
-### PartI: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
+<!-- ### PartI: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
 #### Training Settings
 
 We use Qwen3-1.7B-Base, Qwen3-4B-Base, Qwen3-8B-Base, and Qwen3-30B-A3B-Base as base models. Each model undergoes continued pretraining on 0.14% (50B) tokens of relatively low quality data (opensource data), followed by fine-tuning on the general SFT dataset.
@@ -154,7 +154,43 @@ Additionally, we evaluate how varying the threshold in dynamic inference affects
 
 > [!NOTE]
 > - SDAR achieves **over 2× faster inference speed** compared to static inference almost **without any loss in accuracy**, with its static inference speed being comparable to that of AR models.
-> - The speedup effect tends to become more pronounced with increasing model size.
+> - The speedup effect tends to become more pronounced with increasing model size. -->
+### Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
+
+#### Training Setup
+We start from **Qwen3-1.7B-Base**, **Qwen3-4B-Base**, **Qwen3-8B-Base**, and **Qwen3-30B-A3B-Base**.  
+Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-quality open-source data, followed by supervised fine-tuning (4B tokens).
+
+- **SDAR training**: SDAR-1.7B-Chat / SDAR-4B-Chat / SDAR-8B-Chat / SDAR-30B-A3B-Chat.
+- **AR training**: Qwen3-1.7B-AR-SFT / Qwen3-30B-AR-SFT.
+
+#### Evaluation Setup
+- **Decoding**  
+  - SDAR family: greedy decoding with `block_length = 4`, `denoising_steps = 4`..  
+  - AR baselines: greedy decoding.
+- **Base model sources**  
+  Qwen3-1.7B-Base / Qwen3-30B-Base are taken from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
+
+#### Performance
+![Benchmark results](assets/table1.png)
+*Figure 1. Overall performance across general benchmarks.*
+
+> [!NOTE]
+> - **SDAR-1.7B-Chat** is on par with **Qwen3-1.7B-AR-SFT** across most benchmarks.  
+> - **SDAR-30B-A3B-Chat** performs comparably to **Qwen3-30B-AR-SFT**.
+
+#### Efficiency
+We compare **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under **static** and **dynamic** inference:
+- **Static**: fixed block schedule.
+- **Dynamic**: block schedule adapts to a confidence threshold; higher thresholds favor speed while preserving accuracy until a knee point.
+
+![Accuracy–speed trade-off](assets/Performace_and_speed.svg)
+*Figure 2. Accuracy–speedup under static vs. dynamic inference; dynamic threshold sweeps relative to static.*
+
+> [!NOTE]
+> - **SDAR** delivers **>2× speedup** over static inference **with negligible accuracy loss**; its **static speed** is comparable to AR models.  
+> - The **speedup scales with model size**, making SDAR increasingly favorable for larger models.
+
 
 ### PartII: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
 #### Training Settings
@@ -208,7 +244,7 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 
 
 ## 👏 Acknowledge
-We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR:
+We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
 
 ## 🤝 Core Contributors
 
