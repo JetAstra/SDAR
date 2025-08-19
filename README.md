@@ -12,17 +12,11 @@
 
 ** SDAR is still a early experimental State, we are actively developing more systemical and warmly welcome collobrations in this drection. **
 
-Key Features:
-- Multi-Agent Inference + RL Training in a unified framework
-- Graph-based workflows (debate, chain-of-agents, mixture-of-agents)
-- Support for heterogeneous models within the same agent graph
-- Advanced performance on reasoning benchmarks (e.g., AIME)
-
 > [!Key Features]
 >
-> > - **🚀 Low-Cost AR-to-BlockDiffusion :**
+> > **🚀 Low-Cost AR-to-BlockDiffusion :**
 > - ** ⚡ 2-4× Faster Inference :**  
-> > - **🧠Advanced performance in Science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) :** 
+> > **🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) :** 
 
 ## 🔥 News
 - [2025-08-15] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
