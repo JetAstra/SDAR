@@ -26,6 +26,27 @@
 ## 🛣️ Upcoming
 - [2025-09] Release of the **technical report & training framework** for SDAR, with detailed insights into our methodology and findings 📄.
 - [2025-10] Release of a **production-ready inference engine** for SDAR, optimized for deployment in real-world applications ⚡.
+## 📑 Content
+* [🗞️ News](#️-news)
+* [🛣️ Upcoming](#️-upcoming)
+* [🗂️ Model Zoo](#️-model-zoo)
+* [⚙️ Usage](#️-usage)
+
+  * [Environment Setup](#environment-setup)
+  * [Training](#training)
+  * [Inference](#inference)
+
+* [📊 Benchmarks](#-benchmarks)
+
+  * [Scaling the Qwen3 Series](#scaling-the-qwen3-series-with-sdar-for-general-non-reasoning-tasks)
+  * [Applying SDAR to Qwen3-30B-MoE](#applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
+* [🔥 Highlight](#-highlight)
+* [🚩 Roadmap](#-roadmap)
+* [👏 Acknowledge](#-acknowledge)
+* [🤝 Core Contributors](#-core-contributors)
+* [📬 Contact](#-contact)
+* [🔬 Citation](#-citation)
+* [⭐️ Star History](#️-star-history)
 
 ## 🗂️ Model Zoo
 
@@ -208,8 +229,13 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 - [ ] release reasoning models
 
 
-👏 Acknowledge
-MARTI is developed primarily based on OpenRLHF. We would like to express our gratitude to the developers of OpenRLHF, as well as to the teams behind vLLM, Ray and DeepSpeed for their invaluable contributions.
+## 👏 Acknowledge
+We would like to express our gratitude to the following works for providing important theoretical foundations and inspiration for SDAR:
+
+* MDLM — [arXiv](https://arxiv.org/pdf/2406.07524)
+* LLada — [arXiv](https://arxiv.org/abs/2502.09992)
+* DiffuLLaMA — [arXiv](https://arxiv.org/abs/2410.17891)
+* Block Diffusion — [arXiv](https://arxiv.org/abs/2503.09573)
 
 ## 🤝 Core Contributors
 
