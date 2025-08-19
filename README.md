@@ -8,9 +8,9 @@
 
 </div>
 
-**SDAR** (**S**ynergy of **D**iffusion and **A**uto**R**egression) model is a new large language model that integrates autoregressive (AR) and discrete diffusion modeling strategies. It combines the efficient training paradigm of AR models with the highly parallel inference capability of diffusion models, while delivering performance fully on par with SOTA open-source AR models. At the same time, SDAR sets a new benchmark as the most powerful diffusion language model to date.
+We introduce SDAR (Synergy of Diffusion and AutoRegression), a large diffusion language model that integrates autoregressive and discrete diffusion modeling. By combining the training efficiency of autoregressive methods with the parallel decoding capability of diffusion models, SDAR achieves performance on par with state-of-the-art open-source AR models, while establishing a new benchmark as the most powerful diffusion-based language model to date.
 
-Key Features:
+Highlights:
 - 🚀 Low-Cost AR-to-BlockDiffusion
 - ⚡ 2-4× Faster Inference 
 - 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) 
@@ -232,7 +232,7 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 | SDAR-4B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-4B-Chat](https://huggingface.co/JetLM/SDAR-4B-Chat)     |
 | SDAR-8B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-8B-Chat](https://huggingface.co/JetLM/SDAR-8B-Chat)     |
 | SDAR-30B-A3B-Chat      | Chat               | [huggingface.co/JetLM/SDAR-30B-A3B-Chat](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) |
-| SDAR-30B-A3B-Sci       | Thinking (Science)| [huggingface.co/JetLM/SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) |
+| SDAR-30B-A3B-Sci       | Thinking (Science) | [huggingface.co/JetLM/SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) |
 
 ## 🚩 Roadmap
 
@@ -261,7 +261,7 @@ For the full list of contributors, please refer to the author list in the citati
 For issues or inquiries:
 
 - **Shang Cheng**, Shanghai AI Lab (chengshuang@pjlab.org.cn)
-- **Biqing Qi (Corrsponding Author)**, Shanghai AI Lab (qibiqing@pjlab.org.cn)
+- **Biqing Qi** (Corrsponding Author), Shanghai AI Lab (qibiqing@pjlab.org.cn)
 
 ## 🔬 Citation
 
