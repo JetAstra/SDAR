@@ -183,7 +183,8 @@ For the **SDAR-30B-A3B-Sci** model, we set `block_length=4` and `denoising_steps
 ##### 1. Strict Experimental Comparison
 
 This table presents a **controlled comparison** between AR and SDAR under the same backbone and dataset settings.
-The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 2024, AIME 2025, and LMB-hard. Note, LMB denotes LiveMathBench, while LCB denotes LiveCodeBench.
+The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 2024, AIME 2025, and LMB-hard.
+Note: LMB denotes LiveMathBench, LCB denotes LiveCodeBench; (S) indicates sampling decoding, and (G) indicates greedy decoding.
 
 <p align="center">
   <img src="assets/table2.png" style="max-width:99%; height:auto;">
