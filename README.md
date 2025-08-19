@@ -170,7 +170,7 @@ Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-
 - **Base model sources**  
   Qwen3-1.7B-Base / Qwen3-30B-Base are taken from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
 
-#### Performance
+#### Experiments of Performance
 ![Benchmark results](assets/table1.png)
 *Figure 1. Overall performance across general benchmarks.*
 
@@ -178,7 +178,7 @@ Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-
 > - **SDAR-1.7B-Chat** is on par with **Qwen3-1.7B-AR-SFT** across most benchmarks.  
 > - **SDAR-30B-A3B-Chat** performs comparably to **Qwen3-30B-AR-SFT**.
 
-#### Efficiency
+#### Experiments of Efficiency
 We compare **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under **static** and **dynamic** decoding:
 
 - **Static**: each decoding step emits a fixed number of tokens, independent of confidence.
@@ -208,7 +208,7 @@ We start from **Qwen3-30B-A3B-Base** and derive two science-oriented bases via l
   Averages over 8 runs for GPQA and 32 runs for AIME 202, AIME 2025, and LMB-hard.  
   Abbreviations: LMB = *LiveMathBench*, LCB = *LiveCodeBench*, **(S)** = *sampling*, **(G)** = *greedy*.
 
-#### Performance 
+#### Experiments of Performance 
 
 ##### 1. Strict Experimental Comparison
 ![AR vs. SDAR on reasoning benchmarks](assets/table2.png)
@@ -237,7 +237,7 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 
 - [ ] Release STAR Technical Report
 - [ ] Release Inference Engine and Training Framework
-- [ ] More Features are working in Progess
+- [ ] More Features are working in progress
 
 
 ## 👏 Acknowledge
