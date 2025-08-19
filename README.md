@@ -166,7 +166,7 @@ Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-
 
 #### Evaluation Setup
 - **Decoding**  
-  - SDAR family: greedy decoding with `block_length = 4`, `denoising_steps = 4`..  
+  - SDAR family: greedy decoding with `block_length = 4`, `denoising_steps = 4`.
   - AR baselines: greedy decoding.
 - **Base model sources**  
   Qwen3-1.7B-Base / Qwen3-30B-Base are taken from the [Qwen3 Technical Report](https://arxiv.org/abs/2505.09388).
@@ -192,39 +192,37 @@ We compare **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under **static** and *
 > - **SDAR** delivers **>2× speedup** over static inference **with negligible accuracy loss**; its **static speed** is comparable to AR models.  
 > - The **speedup scales with model size**, making SDAR increasingly favorable for larger models.
 
+### Part II: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
 
-### PartII: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks
-#### Training Settings
+#### Training Setup
+We start from **Qwen3-30B-A3B-Base** and derive two science-oriented bases via large-scale pretraining and annealing, followed by reasoning SFT:
 
-Starting from **Qwen3-30B-A3B-Base**, we trained on 500B tokens (including scientific data) using the NTP strategy, followed by 500B tokens of annealing, resulting in the **AR-30B-A3B-Sci-Base** model. Based on AR-30B-A3B-Sci-Base, we then performed continued training with the SDAR strategy using 50B tokens randomly sampled from the 500B annealing dataset, producing the **SDAR-30B-A3B-Sci-Base** model. Finally, both AR-30B-A3B-Sci-Base and SDAR-30B-A3B-Sci-Base were further fine-tuned on reasoning datasets to obtain the **AR-30B-A3B-Sci** and **SDAR-30B-A3B-Sci** models, respectively.
+1) 500B tokens (continual pretraining) + 500B tokens (annealing) → **AR-30B-A3B-Sci-Base**  
+2) From the annealing corpus, sample **50B tokens** and continue training with **SDAR** → **SDAR-30B-A3B-Sci-Base**  
+3) Fine-tune both bases on reasoning datasets → **AR-30B-A3B-Sci** and **SDAR-30B-A3B-Sci**
 
+#### Evaluation Setup
+- **Decoding & inference.**  
+  - **AR**: sampling decoding with `temperature=0.6`, `top_p=0.95`, `top_k=20`.  
+  - **SDAR**: `block_length=4`, `denoising_steps=4`; we report both **(G)** *greedy* and **(S)** *sampling* (`temperature=1.0`, `top_p=1.0`, `top_k=0`) decoding strategies.
+- **Reporting protocol.**  
+  Averages over 8 runs for GPQA and 32 runs for AIME 202, AIME 2025, and LMB-hard.  
+  Abbreviations: LMB = *LiveMathBench*, LCB = *LiveCodeBench*, **(S)** = *sampling*, **(G)** = *greedy*.
 
-#### Experiemnt of Performance
-
-For the **AR-30B-A3B-Sci** model, we use decoding parameters `temperature=0.6`, `top_p=0.95`, and `top_k=20`.
-For the **SDAR-30B-A3B-Sci** model, we set `block_length=4` and `denoising_steps=4`, and perform decoding with both greedy and sampling strategies, where the sampling parameters are `temperature=1.0`, `top_p=1.0`, and `top_k=0`. 
+#### Performance 
 
 ##### 1. Strict Experimental Comparison
-
-This table presents a **controlled comparison** between AR and SDAR under the same backbone and dataset settings.
-The results are averaged over 8 runs for GPQA, and over 32 runs each for AIME 2024, AIME 2025, and LMB-hard.
-Note: LMB denotes LiveMathBench, LCB denotes LiveCodeBench; (S) indicates sampling decoding, and (G) indicates greedy decoding.
-
-<p align="center">
-  <img src="assets/table2.png" style="max-width:99%; height:auto;">
-<p align="center">
+![AR vs. SDAR on reasoning benchmarks](assets/table2.png)
+*Figure 2. Strict comparison under identical backbones and datasets.*
 
 > [!NOTE]
-> - 📈 **Strict experimental comparison (AR vs. SDAR):** Under identical settings, **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with especially notable gains on science-focused tasks such as **GPQA**, **ChemBench**, and **PHYSICS**.
+> **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with pronounced gains on science-focused tasks such as **GPQA**, **ChemBench**, and **PHYSICS**.
 
-##### 2. Comparison with Other Open/Closed Models
+##### 2. Comparison to External Open/Closed Models
+We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. External scores are taken from [InternLM/Intern-S1](https://github.com/InternLM/Intern-S1).
 
-This table positions **SDAR-30B-A3B-Sci(sample)** against leading open-source and closed-source LLMs.
-Scores for external models are sourced from the [InternLM/Intern-S1](https://github.com/InternLM/Intern-S1) repository.
-
-<p align="center">
-  <img src="assets/table3.png" style="max-width:95%; height:auto;">
-<p align="center">
+![SDAR vs. open/closed models](assets/table3.png)
+*Figure 3. Positioning against external models (sources: InternLM/Intern-S1).*
 
 ## 🗂️ Model Zoo
 
@@ -235,7 +233,6 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 | SDAR-8B-Chat           | Chat               | [huggingface.co/JetLM/SDAR-8B-Chat](https://huggingface.co/JetLM/SDAR-8B-Chat)     |
 | SDAR-30B-A3B-Chat      | Chat               | [huggingface.co/JetLM/SDAR-30B-A3B-Chat](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) |
 | SDAR-30B-A3B-Sci       | Thinking (Science)| [huggingface.co/JetLM/SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) |
-
 
 ## 🚩 Roadmap
 
