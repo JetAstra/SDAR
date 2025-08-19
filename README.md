@@ -13,7 +13,7 @@ We introduce SDAR (Synergy of Diffusion and AutoRegression), a large-scale diffu
 Highlights:
 - 🚀 Low-Cost AR-to-BlockDiffusion
 - ⚡ 2-4× Faster Inference 
-- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) )
+- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench and ranking Top 1 in Physics)
 
 **SDAR is still an early experimental state, we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
