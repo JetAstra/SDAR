@@ -211,21 +211,23 @@ Scores for external models are sourced from the [InternLM/Intern-S1](https://git
 👏 Acknowledge
 MARTI is developed primarily based on OpenRLHF. We would like to express our gratitude to the developers of OpenRLHF, as well as to the teams behind vLLM, Ray and DeepSpeed for their invaluable contributions.
 
-🤝 Core Contributors
+## 🤝 Core Contributors
 
-- XX: Shang Cheng
-- XX: Dawei Liu 
-- XX: Yihan Bian 
-- Project Leader: Biqing Qi 
+- Shang Cheng: Initial idea proposal, model evaluation, and inference.
+- Dawei Liu: Implementation of model training code, training experiments.
+- Yihan Bian: Engineering optimization, inference & training acceleration, MOE training code implementation.
+- Biqing Qi: Project leader and overall coordination.
+
+> [!NOTE]
+> *Note: This project is a collaborative effort, with all contributors solving challenges together.*
 
 For the full list of contributors, please refer to the author list in the citation. We are also deeply grateful to everyone who engaged in discussions and provided valuable feedback throughout the development of this project.
 
----
+## 📬 Contact
 
-📬 Contact
 For issues or inquiries:
 
-- Shang Cheng, Shanghai AI Lab ()
+- Shang Cheng, Shanghai AI Lab (chengshuang@pjlab.org.cn)
 - Biqing Qi, Shanghai AI Lab (qibiqing@pjlab.org.cn)
 
 ## 🔬 Citation
