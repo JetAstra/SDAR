@@ -8,15 +8,14 @@
 
 </div>
 
-We introduce SDAR (Synergy of Diffusion and AutoRegression), a large diffusion language model that integrates autoregressive and discrete diffusion modeling. By combining the training efficiency of autoregressive methods with the parallel decoding capability of diffusion models, SDAR achieves performance on par with state-of-the-art open-source AR models, while establishing a new benchmark as the most powerful diffusion-based language model to date.
+We introduce SDAR (Synergy of Diffusion and AutoRegression), a large-scale diffusion language model that unites the complementary strengths of autoregressive and discrete diffusion modeling. By merging the training efficiency of autoregressive methods with the highly parallel decoding ability of diffusion models, SDAR delivers performance competitive with state-of-the-art open-source AR models. It sets a new standard as the most powerful diffusion-based language model to date—particularly excelling as a generalist model with strong specialist capabilities. 
 
 Highlights:
 - 🚀 Low-Cost AR-to-BlockDiffusion
 - ⚡ 2-4× Faster Inference 
-- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench, Physics (Top1) ) 
+- 🧠 Advanced performance on science reasoning benchmarks (e.g., GPQA, ChemBench, #1 ranking on Physics) 
 
-**SDAR is still a early experimental State, we are actively developing more systematic and warmly welcome collobrations in this drection.**
-
+**SDAR is still an early experimental state; we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
 ## 🔥 News
 - [2025-08-15] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
