@@ -180,9 +180,10 @@ Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-
 > - **SDAR-30B-A3B-Chat** performs comparably to **Qwen3-30B-AR-SFT**.
 
 #### Efficiency
-We compare **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under **static** and **dynamic** inference:
-- **Static**: fixed block schedule.
-- **Dynamic**: block schedule adapts to a confidence threshold; higher thresholds favor speed while preserving accuracy until a knee point.
+We compare **SDAR-30B-A3B-Chat** and **Qwen3-30B-AR-SFT** under **static** and **dynamic** decoding:
+
+- **Static**: each decoding step emits a fixed number of tokens, independent of confidence.
+- **Dynamic**: within a block, once the confidence exceeds a threshold $\theta$, the decoder releases multiple tokens at once (up to the block size).
 
 ![Accuracy–speed trade-off](assets/Performace_and_speed.svg)
 *Figure 2. Accuracy–speedup under static vs. dynamic inference; dynamic threshold sweeps relative to static.*
