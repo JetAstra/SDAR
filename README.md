@@ -34,11 +34,11 @@ Highlights:
     - [Part II: Applying SDAR to Qwen3-30B-MoE for Reasoning Benchmarks](#part-ii-applying-sdar-to-qwen3-30b-moe-for-reasoning-benchmarks)
   - [🗂️ Model Zoo](#-model-zoo)
   - [🚩 Roadmap](#-roadmap)
-  - [👏 Acknowledge](#-acknowledge)
   - [🤝 Core Contributors](#-core-contributors)
   - [📬 Contact](#-contact)
   - [🔬 Citation](#-citation)
   - [⭐️ Star History](#-star-history)
+  - [👏 Acknowledge](#-acknowledge)
 
 ## ⚙️ Usage
 
@@ -208,10 +208,6 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 - [ ] Release Inference Engine and Training Framework
 - [ ] More Features are working in progress
 
-## 👏 Acknowledge
-
-We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
-
 ## 🤝 Core Contributors
 
 - **Shuang Cheng**: Initial idea proposal, model evaluation, and inference.
@@ -246,3 +242,7 @@ For issues or inquiries:
 ## ⭐️ Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=JetAstra/SDAR&type=Date)](https://www.star-history.com/#JetAstra/SDAR&Date)
+
+## 👏 Acknowledge
+
+We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
