@@ -35,10 +35,11 @@ Highlights:
   - [🗂️ Model Zoo](#-model-zoo)
   - [🚩 Roadmap](#-roadmap)
   - [🤝 Core Contributors](#-core-contributors)
+  - [👏 Acknowledge](#-acknowledge)
   - [📬 Contact](#-contact)
   - [🔬 Citation](#-citation)
   - [⭐️ Star History](#-star-history)
-  - [👏 Acknowledge](#-acknowledge)
+
 
 ## ⚙️ Usage
 
@@ -220,6 +221,10 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 
 For the full list of contributors, please refer to the author list in the citation. We are also deeply grateful to everyone who engaged in discussions and provided valuable feedback throughout the development of this project.
 
+## 👏 Acknowledge
+
+We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
+
 ## 📬 Contact
 
 For issues or inquiries:
@@ -243,6 +248,3 @@ For issues or inquiries:
 
 [![Star History Chart](https://api.star-history.com/svg?repos=JetAstra/SDAR&type=Date)](https://www.star-history.com/#JetAstra/SDAR&Date)
 
-## 👏 Acknowledge
-
-We would like to express our gratitude to the following works （[MDLM](https://arxiv.org/pdf/2406.07524), [LLaDA](https://arxiv.org/abs/2502.09992), [DiffuLLaMA](https://arxiv.org/abs/2410.17891), [Block Diffusion](https://arxiv.org/abs/2503.09573)） for providing important theoretical foundations and inspiration for SDAR.
