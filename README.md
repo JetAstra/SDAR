@@ -63,9 +63,9 @@ python generate.py \
   --trust_remote_code
 ```
 
-#### 2. Using the third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine)
+#### 2. Using the prepared inference engine [JetEngine](https://github.com/Labman42/JetEngine) (For batch inference and production level speedup)
 
-JetEngine, a lightweight inference engine for the SDAR series built on [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm), enables more efficient inference compared to the built-in implementation.
+JetEngine, a lightweight inference engine for the SDAR series built on [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm), enables more efficient inference compared to the naive implementation.
 
 ```bash
 git clone https://github.com/JetAstra/SDAR.git
@@ -212,8 +212,8 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 ## 🤝 Core Contributors
 
 - **Shuang Cheng**: Initial idea proposal, model evaluation, and inference.
-- **Dawei Liu**: Implementation of model training code, training experiments.
 - **Yihan Bian**: Engineering optimization, inference & training acceleration, MOE training code implementation.
+- **Dawei Liu**: Implementation of model training code, training experiments.
 - **Biqing Qi**: Project Leader and overall coordination.
 
 > [!NOTE]
@@ -230,6 +230,7 @@ We would like to express our gratitude to the following works （[MDLM](https://
 For issues or inquiries:
 
 - **Shuang Cheng**, Shanghai AI Lab (chengshuang@pjlab.org.cn)
+- **Yihan Bian**, University of Maryland, College Park (ybian@umd.edu)
 - **Biqing Qi** (Corrsponding Author), Shanghai AI Lab (qibiqing@pjlab.org.cn)
 
 ## 🔬 Citation
