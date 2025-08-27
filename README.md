@@ -65,9 +65,16 @@ python generate.py \
 
 #### 2. Using the prepared inference engine [JetEngine](https://github.com/Labman42/JetEngine) (For batch inference and production level speedup)
 
-JetEngine, a lightweight inference engine for the SDAR series built on [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm), enables more efficient inference compared to the naive implementation.
+JetEngine, a lightweight inference engine for the SDAR series built on [nano-vllm](https://github.com/GeeeekExplorer/nano-vllm) support both dense and MoE models and Tensor Parallel distributed inference, delivers tons of acceleration compared to the naive implementation.
+
+In our benchmark, we tested the 4B SDAR model with block size 4 (basic acceleration setting) and batch size 128:
+	•	On NVIDIA A800, JetEngine reached 1800+ tokens/second.
+	•	On NVIDIA H200, JetEngine achieved 3700+ tokens/second using FlashAttention-2 + Triton kernels.
+
+This demonstrates that JetEngine can unlock production-level throughput for SDAR models, making it ideal for both research-scale batch inference and real-world deployment scenarios.
 
 ```bash
+pip install flash-attn --no-build-isolation #Install fa2
 git clone https://github.com/JetAstra/SDAR.git
 cd SDAR
 git submodule update --init --recursive
