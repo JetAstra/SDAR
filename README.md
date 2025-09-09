@@ -18,6 +18,7 @@ Highlights:
 **SDAR is still an early experimental state, we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
 ## 🔥 News
+- [2025-09-09] We’ve open-sourced the weights for models with various block sizes. Alongside our default model (block size=4), you can now find models with block sizes of 8, 16, 32, 64 on the Hugging Face 🤗.
 - [2025-08-18] We’ve open-sourced the weights for our [SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) model — now available on Hugging Face 🤗.
 - [2025-08-13] We’ve released the inference code for SDAR models, including a built-in script and a third-party inference engine [JetEngine](https://github.com/Labman42/JetEngine) 🚀.
 - [2025-07-20] We’ve open-sourced the weights for our [1.7B](https://huggingface.co/JetLM/SDAR-1.7B-Chat), [4B](https://huggingface.co/JetLM/SDAR-4B-Chat), [8B](https://huggingface.co/JetLM/SDAR-8B-Chat) dense models, along with our [30B](https://huggingface.co/JetLM/SDAR-30B-A3B-Chat) MoE model — now available on Hugging Face 🤗.
@@ -130,6 +131,8 @@ outputs = llm.generate_streaming([prompt], sampling_params)
 
 We start from **Qwen3-1.7B-Base**, **Qwen3-4B-Base**, **Qwen3-8B-Base**, and **Qwen3-30B-A3B-Base**.  
 Each model is continued-pretrained on **50B tokens (~0.14%)** of relatively low-quality open-source data, followed by supervised fine-tuning (4B tokens).
+
+The default model maintains a block size of 4 throughout its entire training process. For **block size scaling**, we use a block size of 4 during the continued pretraining phase, and directly increase it to the target block size (e.g., 8, 16, 32, or 64) during the SFT phase.
 
 - **SDAR training**: SDAR-1.7B-Chat / SDAR-4B-Chat / SDAR-8B-Chat / SDAR-30B-A3B-Chat.
 - **AR training**: Qwen3-1.7B-AR-SFT / Qwen3-30B-AR-SFT.
