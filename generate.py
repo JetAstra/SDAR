@@ -67,6 +67,7 @@ def block_diffusion_generate(
         top_p=1.0,
         remasking_strategy='low_confidence_dynamic',
         confidence_threshold=0.85,
+        eb_threshold=None,
         stopping_criteria_idx=None
     ):
 
@@ -176,6 +177,18 @@ def block_diffusion_generate(
                         _, idx = torch.topk(
                             confidence[j], num_transfer_tokens[step])
                         transfer_index[j, idx] = True
+            elif remasking_strategy == "entropy_bounded":
+                eps = 1e-12
+                entropies = -(x0_p.clamp_min(eps) * (x0_p.clamp_min(eps)).log()).sum(dim=-1)
+                entropies = torch.where(mask_index, entropies, torch.inf)
+                ent_sorted, order = torch.sort(entropies, dim=1, descending=False)
+                cumsum = torch.cumsum(ent_sorted, dim=1)
+                for j in range(x0_p.shape[0]):
+                    k = torch.searchsorted(cumsum[j], torch.tensor(eb_threshold, device=x0_p.device), right=False).item()
+                    k = max(1, min(k, int(mask_index[j].sum().item())))
+                    selected_token_indices = order[j, :k]
+                    transfer_index[j, selected_token_indices] = True
+                
             else:
                 raise ValueError(
                     f"Unknown remasking strategy: {remasking_strategy}")
@@ -214,17 +227,27 @@ def parse_args():
     parser.add_argument("--remasking_strategy", type=str, default="low_confidence_dynamic",
                         choices=["low_confidence_dynamic",
                                  "low_confidence_static",
-                                 "sequential"],
+                                 "sequential",
+                                 "entropy_bounded"],
                         help="Strategy for remasking tokens")
     parser.add_argument("--confidence_threshold", type=float, default=0.85,
                         help="Confidence threshold for low-confidence remasking")
+    parser.add_argument("--eb_threshold", type=float, default=0.35,
+                        help="entropy threshold for entropy bounded sampling")
     parser.add_argument("--stopping_criteria_idx", type=int, nargs="+", default=None,
                         help="List of token IDs that stop generation (e.g. eos_token_id)")
 
     parser.add_argument("--device", type=str, default="cuda",)
     parser.add_argument("--dtype", type=str, default="float16",
                         choices=["float16", "bfloat16"],)
-
+    if args.remasking_strategy == "low_confidence_dynamic" and args.confidence_threshold is None:
+        parser.error(
+            "--confidence_threshold is required when --remasking_strategy=low_confidence_dynamic"
+        )
+    if args.remasking_strategy == "entropy_bounded" and args.eb_threshold is None:
+        parser.error(
+            "--eb_threshold is required when --remasking_strategy=entropy_bounded"
+        )
     return parser.parse_args()
 
 
@@ -285,6 +308,7 @@ if __name__ == "__main__":
         top_p=args.top_p,
         remasking_strategy=args.remasking_strategy,
         confidence_threshold=args.confidence_threshold,
+        eb_threshold=args.eb_threshold,
         stopping_criteria_idx=args.stopping_criteria_idx
     )
 
