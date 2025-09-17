@@ -13,7 +13,7 @@ We introduce SDAR (Synergy of Diffusion and AutoRegression), a large-scale diffu
 Highlights:
 - 🚀 Low-Cost AR-to-BlockDiffusion
 - ⚡ 2-4× Faster Inference 
-- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA, ChemBench and ranking Top 1 in Physics)
+- 🧠 Advanced performance on science reasoning bechmarks (e.g., GPQA and ChemBench)
 
 **SDAR is still an early experimental state, we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
@@ -189,12 +189,20 @@ We start from **Qwen3-30B-A3B-Base** and derive two science-oriented bases via l
 #### Experiments of Performance
 ##### 1. Strict Experimental Comparison
 
-*Table 2. Strict comparison under identical backbones and datasets.*
-![AR vs. SDAR on reasoning benchmarks](assets/table2.png)
+*Table 2. Strict comparison under identical backbones and datasets. Benchmarks on general reasoning, mathematics and code generation.*
+<div style="text-align: center;">
+  <img src="assets/table2.png" alt="AR vs. SDAR on reasoning benchmarks" style="width: 90%;">
+</div>
+
+*Table 3. Strict comparison under identical backbones and datasets. Benchmarks on  scientific domains.*
+<div style="text-align: center;">
+  <img src="assets/table2_1.png" alt="AR vs. SDAR on reasoning benchmarks" style="width: 80%;">
+</div>
+
 
 
 > [!NOTE]
-> **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with pronounced gains on science-focused tasks such as **GPQA**, **ChemBench**, and **PHYSICS**.
+> **SDAR-30B-A3B-Sci** consistently outperforms **AR-30B-A3B-Sci**, with pronounced gains on science-focused tasks such as **GPQA** and **ChemBench**.
 
 ##### 2. Comparison to External Open/Closed Models
 
