@@ -249,7 +249,6 @@ We would like to express our gratitude to the following works （[MDLM](https://
 For issues or inquiries:
 
 - **Shuang Cheng**, Shanghai AI Lab (chengshuang@pjlab.org.cn)
-- **Yihan Bian**, University of Maryland, College Park (ybian@umd.edu)
 - **Biqing Qi** (Corrsponding Author), Shanghai AI Lab (qibiqing@pjlab.org.cn)
 
 ## 🔬 Citation
