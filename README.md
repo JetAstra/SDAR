@@ -125,7 +125,45 @@ prompt = tokenizer.apply_chat_template(
 outputs = llm.generate_streaming([prompt], sampling_params)
 ```
 
+#### 3. Using the prepared inference engine [LMDeploy](https://github.com/InternLM/lmdeploy) (For batch inference and production level speedup)
 
+```
+from lmdeploy import pipeline, PytorchEngineConfig, GenerationConfig, ChatTemplateConfig
+from lmdeploy.pytorch.tools.utils import Timer, visualize_pipe_out
+
+
+if __name__ == '__main__':
+    model_path = 'JetLM/SDAR-8B-Chat'
+
+    prompts = [
+        [dict(role="user", content="Given the function $f(x) = \\frac{4x^2 - 4x + 4}{x^2 + 2x + 4}$, where $x \\in \\mathbb{R}$, determine its minimum value.\nPlease reason step by step, and put your final answer within \\boxed{}.\n")],
+        [dict(role="user", content="If the domain of the function $\\log x^2$ is $x < a$ or $x > b$, for some $a$ and $b$, find $a + b$.\nPlease reason step by step, and put your final answer within \\boxed{}.\n")],
+        [dict(role="user", content="Find the sum of all integer bases $b>9$ for which $17_{b}$ is a divisor of $97_{b}$.\nRemember to put your final answer within \\boxed{}.\n")],
+        [dict(role="user", content="Find the number of ordered pairs $(x,y)$, where both $x$ and $y$ are integers between $-100$ and $100$, inclusive, such that $12x^{2}-xy-6y^{2}=0$.\nRemember to put your final answer within \\boxed{}.\n")],
+    ]
+
+    backend_config = PytorchEngineConfig(
+            tp=1,
+            dtype="float16",
+            max_prefill_token_num=4096,
+            cache_max_entry_count=0.8,
+            dllm_block_length=4,
+            dllm_denoising_steps=4,
+            dllm_unmasking_strategy="low_confidence_dynamic",
+            dllm_confidence_threshold=0.9,
+        )
+
+    gen_config = GenerationConfig(
+        top_p=0.95,
+        top_k=50,
+        temperature=1.0,
+        do_sample=False, # greedy decoding
+        max_new_tokens=4096,
+    )
+
+    outputs = self.pipe(prompts, gen_config=gen_config)
+    print(output.text)
+```
 ## 📊 Preliminary Experiments
 ### Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
 #### Training Setup
