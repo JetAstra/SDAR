@@ -45,18 +45,16 @@ Highlights:
 
 ## ⚙️ Usage
 
-### Environment Setup
+
+### Training
+
+For detailed instructions on how to fine-tune the model on your own dataset, please refer to the guide in the `training` directory: [**training/README.md**](./training/README.md).
+
+### Inference
 
 ```
 transformers>=4.52.4
 ```
-
-### Training
-
-The training code will be released soon.
-
-### Inference
-
 #### 1. Using the built-in inference script
 
 ```bash
@@ -152,6 +150,7 @@ if __name__ == '__main__':
             dllm_unmasking_strategy="low_confidence_dynamic",
             dllm_confidence_threshold=0.9,
         )
+    pipe = pipeline(model_path, backend_config=backend_config)
 
     gen_config = GenerationConfig(
         top_p=0.95,
@@ -162,7 +161,7 @@ if __name__ == '__main__':
     )
 
     outputs = self.pipe(prompts, gen_config=gen_config)
-    print(output.text)
+    print(outputs.text)
 ```
 ## 📊 Preliminary Experiments
 ### Part I: Scaling the Qwen3 Series with SDAR for General (Non-Reasoning) Tasks
