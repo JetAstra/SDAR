@@ -18,6 +18,7 @@ Highlights:
 **SDAR is still an early experimental state, we are actively developing more systematic and warmly welcome collaborations in this direction.**
 
 ## 🔥 News
+- [2025-10-29] We have open-sourced our downstream task fine-tuning framework, powered by  [LlamaFactory](https://github.com/hinhio/LLaMA-Factory). It provides a powerful and user-friendly toolkit for adapting SDAR to your specific needs 🛠️.
 - [2025-10-10]  We've implemented an industrial-grade inference solution for SDAR models on the [lmdeploy framework](https://github.com/InternLM/lmdeploy), providing robust and efficient deployment infrastructure for production environments 🚀.
 - [2025-09-09] We’ve open-sourced the weights for models with various block sizes. Alongside our default model (block size=4), you can now find models with block sizes of 8, 16, 32, 64 on the Hugging Face 🤗.
 - [2025-08-18] We’ve open-sourced the weights for our [SDAR-30B-A3B-Sci](https://huggingface.co/JetLM/SDAR-30B-A3B-Sci) model — now available on Hugging Face 🤗.
@@ -261,8 +262,8 @@ We position **SDAR-30B-A3B-Sci** against leading open- and closed-source LLMs. E
 
 ## 🚩 Roadmap
 
-- [ ] Release SDAR Technical Report
-- [ ] Release Inference Engine and Training Framework
+- [x] Release SDAR Technical Report
+- [x] Release Inference Engine and Training Framework
 - [ ] More Features are working in progress
 
 ## 🤝 Core Contributors
