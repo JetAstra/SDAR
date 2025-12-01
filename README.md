@@ -161,7 +161,7 @@ if __name__ == '__main__':
         max_new_tokens=4096,
     )
 
-    outputs = self.pipe(prompts, gen_config=gen_config)
+    outputs = pipe(prompts, gen_config=gen_config)
     print(outputs.text)
 ```
 ## 📊 Preliminary Experiments
