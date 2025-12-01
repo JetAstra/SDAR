@@ -1170,17 +1170,17 @@ class SDARForCausalLM(SDARPreTrainedModel, GenerationMixin):
             hidden_states = outputs.last_hidden_state
             hidden_states = hidden_states[logits_to_keep].contiguous()
             assert labels is not None, "Labels must be provided for training."
-            labels = labels[logits_to_keep_half].contiguous()
+            answer_len = (labels != -100).sum()
             loss_fct = FusedLinearDiffusionCrossEntropyLoss(reduction='sum')
             loss = loss_fct(  # it will return (sum_loss, unreduced_loss)
                     # conduct `view(-1, V)` inside the function
                     x=hidden_states,
-                    target=labels,
+                    target=labels[logits_to_keep_half].contiguous(),
                     weight=self.lm_head.weight,
                     bias=self.lm_head.bias,
                     p_mask=p_mask,
                 )
-            loss = loss / labels.numel()
+            loss = loss / answer_len
             logits = None
         else:
             # decoder outputs consists of (dec_features, layer_state, dec_hidden, dec_attn)
