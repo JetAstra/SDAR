@@ -45,8 +45,8 @@ from transformers.modeling_rope_utils import ROPE_INIT_FUNCTIONS, dynamic_rope_u
 from transformers.modeling_utils import ALL_ATTENTION_FUNCTIONS, PreTrainedModel
 from transformers.processing_utils import Unpack
 from transformers.utils import LossKwargs, auto_docstring, can_return_tuple, is_torch_flex_attn_available, logging
-from configuration_sdar import SDARConfig
-from fused_linear_diffusion_cross_entropy import FusedLinearDiffusionCrossEntropyLoss
+from .configuration_sdar import SDARConfig
+from .fused_linear_diffusion_cross_entropy import FusedLinearDiffusionCrossEntropyLoss
 
 from flash_attn.ops.triton.layer_norm import rms_norm_fn as flash_rms_norm
 

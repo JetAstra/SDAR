@@ -300,6 +300,10 @@ For issues or inquiries:
   url={https://github.com/JetAstra/SDAR}
 }
 ```
+## 💬 Join our WeChat Group
+<div align="center">
+  <img src="./assets/wechat.jpg" alt="WeChat Group QR Code" width="200"/>
+</div>
 
 ## ⭐️ Star History
 
