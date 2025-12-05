@@ -304,8 +304,3 @@ For issues or inquiries:
 <div align="center">
   <img src="./assets/wechat.jpg" alt="WeChat Group QR Code" width="200"/>
 </div>
-
-## ⭐️ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=JetAstra/SDAR&type=Date)](https://www.star-history.com/#JetAstra/SDAR&Date)
-
