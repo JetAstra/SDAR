@@ -26,7 +26,7 @@ conda activate <your_env_name>
 A sample evaluation script is provided at:
 
 ```
-evaluation/opencompass/configs/eval_sdar.py
+evaluation/opencompass/configs/eval_sdar_lmdeploy.py
 ```
 
 You can customize this file to change:
@@ -41,15 +41,19 @@ You can customize this file to change:
 
 From the project root, run:
 
+Using the lmdeploy inference engine:
 ```bash
-python run.py configs/eval_sdar.py
+python run.py configs/eval_sdar_lmdeploy.py
 ```
 
-After execution, results will be saved in the output folder or in the path specified in the evaluation configuration.
+Using the Hugging Face inference script:
+```bash
+python run.py configs/eval_sdar_hf.py
+```
 
 ---
 
 ## Notes & Recommendations
 
-- To evaluate multiple models, add their configurations to `eval_sdar.py`.
-- OpenCompass supports various datasets; adjust dataset list as needed for your evaluation goals.
+- To evaluate multiple models, add their configurations to `eval_sdar_lmdeploy.py`.
+- OpenCompass supports various datasets; adjust the dataset list as needed based on your evaluation goals.
