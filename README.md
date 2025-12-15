@@ -292,12 +292,11 @@ For issues or inquiries:
 ## 🔬 Citation
 
 ```
-@misc{JetAstra2025,
-  title={SDAR: A Synergistic Diffusion–AutoRegression Paradigm for Scalable Sequence Generation},
-  author={Shuang Cheng and Yihan Bian and Dawei Liu and Yuhua Jiang and Yihao Liu and Linfeng Zhang and Wenghai Wang and Qipeng Guo and Kai Chen and Biqing Qi and Bowen Zhou},
-  year={2025},
-  institution={Shanghai AI Lab},
-  url={https://github.com/JetAstra/SDAR}
+@article{cheng2025sdar,
+  title={Sdar: A synergistic diffusion-autoregression paradigm for scalable sequence generation},
+  author={Cheng, Shuang and Bian, Yihan and Liu, Dawei and Zhang, Linfeng and Yao, Qian and Tian, Zhongbo and Wang, Wenhai and Guo, Qipeng and Chen, Kai and Qi, Biqing and others},
+  journal={arXiv preprint arXiv:2510.06303},
+  year={2025}
 }
 ```
 ## 💬 Join our WeChat Group
