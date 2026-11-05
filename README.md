@@ -53,6 +53,10 @@ For detailed instructions on how to fine-tune the model on your own dataset, ple
 
 ### Inference
 
+For SDAR-8B-Chat, passing `enable_thinking=False` to the original tokenizer template
+can produce empty answers. The local 8B template now uses the same generation prefix
+whether this flag is omitted or passed; see [the template fix and reproduction](docs/chat_template.md).
+
 ```
 transformers>=4.52.4
 ```
